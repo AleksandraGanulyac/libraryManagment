@@ -3,5 +3,6 @@ public class Book extends Literature{
         this.name = name;
         this.author = author;
         this.year = year;
+        this.storage = 30;
     }
 }
