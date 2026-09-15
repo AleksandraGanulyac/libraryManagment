@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+        addBook addBook = new addBook();
         int choice;
+        boolean isRunning = true;
 
         System.out.println("Привет! Вы находитесь в библиотеке, ведите себя пожалуйста тихо");
         System.out.println("Выберите и введите цифру");
@@ -18,9 +20,43 @@ public class Main{
         System.out.print("Выберите и введите цифру, соответствующую нужной информации: ");
         choice = scanner.nextInt();
 
-        switch(choice){
-            case 1:
+        while(isRunning){
+            if(scanner.hasNextInt() && 1<= choice && choice <= 8){
+                switch(choice){
+                    case 1:
+                        addBook.addBook();
+                        break;
+                    case 2:
+                        //реализовать
+                        break;
+                    case 3:
+                        //реализовать
+                        break;
+                    case 4:
+                        //реализовать
+                        break;
+                    case 5:
+                        //реализовать
+                        break;
+                    case 6:
+                        //реализовать
+                        break;
+                    case 7:
+                        //реализовать
+                        break;
+                    case 8:
+                        isRunning = false;
+                    default:
+                        System.out.println("Неверный символ, попробуйте еще раз");
+                        break;
 
+                }
+            }else{
+                System.out.println("Вы ввели неверное число, попробуйте снова");
+            }
         }
+
+
+        scanner.close();
     }
 }
