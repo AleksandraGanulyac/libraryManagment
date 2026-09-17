@@ -11,7 +11,7 @@ public class Newspapper extends Literature{
     }
     public static void output(){
         for(newspapper1 newspapper:newspappers){
-            System.out.println("ID: "+ newspapper.id +"Название: " + newspapper.name() + "|Автор: " + newspapper.author() + "|Год написания: " + newspapper.year() + "|Срок хранения: " + storage);
+            System.out.println("ID: "+ newspapper.id +"|Название: " + newspapper.name() + "|Автор: " + newspapper.author() + "|Год написания: " + newspapper.year() + "|Срок хранения: " + storage);
         }
     }
 

@@ -27,7 +27,7 @@ public class Main{
                         addBook.addBook();
                         break;
                     case 2:
-                        Literature.output();
+                        Literature.output(); // убрать
                         break;
                     case 3:
                         //реализовать

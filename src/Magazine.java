@@ -11,7 +11,7 @@ public class Magazine extends Literature{
     }
     public static void output(){
         for(magazine1 magazine:magazines){
-            System.out.println("ID: "+ magazine.id +"Название: " + magazine.name() + "|Автор: " + magazine.author() + "|Год написания: " + magazine.year() + "|Срок хранения: " + storage);
+            System.out.println("ID: "+ magazine.id +"|Название: " + magazine.name() + "|Автор: " + magazine.author() + "|Год написания: " + magazine.year() + "|Срок хранения: " + storage);
         }
     }
 }
