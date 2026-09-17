@@ -24,13 +24,18 @@ public class addBook {
 
     public void addBook(){
         System.out.println("Введите тип(книга, журнал, газета): ");
-        type = scanner.nextLine().substring(0,1).toUpperCase() + type.substring(1);// какая нибудь проверка на текст чтобы не вылетало с ошибкой
+        type = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
+        type = type.substring(0,1).toUpperCase() + type.substring(1);
         //Реализовать добавление в нужный массив в зависимости от выбора
 
         System.out.println("Введите название: ");
-        name = scanner.nextLine().substring(0,1).toUpperCase() + name.substring(1);; // какая нибудь проверка на текст чтобы не вылетало с ошибкой
+        name = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
+        name = name.substring(0,1).toUpperCase() + type.substring(1);
+
         System.out.println("Введите автора: ");
-        author = scanner.nextLine().substring(0,1).toUpperCase() + author.substring(1);;// какая нибудь проверка на текст чтобы не вылетало с ошибкой
+        author = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
+        author = author.substring(0,1).toUpperCase() + type.substring(1);
+
         System.out.println("Введите год издания: ");
         year = scanner.nextInt(); // какая нибудь проверка на число чтобы не вылетало с ошибкой
 
