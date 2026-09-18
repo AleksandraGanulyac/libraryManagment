@@ -4,6 +4,7 @@ public class Main{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         addBook addBook = new addBook();
+        addUser addUser = new addUser();
         int choice;
         boolean isRunning = true;
 
@@ -27,12 +28,12 @@ public class Main{
                         addBook.addBook();
                         break;
                     case 2:
-                        Literature.output(); // убрать
+                        addUser.addUser();
                         break;
                     case 3:
-                        //реализовать
-                        break;
+                        Literature.output();
                     case 4:
+                        User.output();
                         //реализовать
                         break;
                     case 5:
