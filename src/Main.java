@@ -5,6 +5,9 @@ public class Main{
         Scanner scanner = new Scanner(System.in);
         addBook addBook = new addBook();
         addUser addUser = new addUser();
+        searchName searchName = new searchName();
+        Literature literature = new Literature();
+
         int choice;
         boolean isRunning = true;
 
@@ -31,9 +34,10 @@ public class Main{
                         addUser.addUser();
                         break;
                     case 3:
-                        Literature.output();
+                        searchName.searchName();
+                        break;
                     case 4:
-                        User.output();
+                        literature.output();
                         //реализовать
                         break;
                     case 5:

@@ -24,7 +24,6 @@ public class addBook {
     }
 
     public void addBook(){
-        while(choice){
             System.out.println("Введите тип(книга, журнал, газета): ");
             type = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
             if (!type.isEmpty()){
@@ -68,7 +67,7 @@ public class addBook {
 
             //Вывод введенной информации перед возвратом в меню
             //если нет, то начинается добавление еще одной книги
-            }
+
         scanner.close();
     }
 }
