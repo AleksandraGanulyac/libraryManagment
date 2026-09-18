@@ -58,7 +58,7 @@ public class addUser {
                 System.out.println("Вы неверно ввели тип попробуйте снова");
                 Exit.exit();
             }
-            User.add(getId(), type,  name, surname, year);
+            User.add(getId(),  name,  surname, type, year);
             increment();
 
             Exit.exit();
