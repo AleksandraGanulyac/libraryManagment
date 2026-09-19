@@ -7,6 +7,7 @@ public class Main{
         addUser addUser = new addUser();
         searchName searchName = new searchName();
         Literature literature = new Literature();
+        searchAuthor searchAuthor = new searchAuthor();
 
         int choice;
         boolean isRunning = true;
@@ -41,6 +42,7 @@ public class Main{
                         //реализовать
                         break;
                     case 5:
+                        searchAuthor.searchAuthor();
                         //реализовать
                         break;
                     case 6:
