@@ -20,6 +20,9 @@ public class Literature {
     }
     public static ArrayList<Literature> literatures = new ArrayList<>();
 
+    public Literature() {
+    }
+
     public static void add(int id, String type, String name, String author, int year){
         literatures.add(new Literature(id, type, name, author, year));
     }

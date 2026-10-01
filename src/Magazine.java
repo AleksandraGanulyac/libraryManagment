@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class Magazine extends Literature{
     static final int storage = 7;
 
+    public Magazine(int id, String type, String name, String author, int year) {
+        super(id, type, name, author, year);
+    }
+
     static record magazine1(int id, String name, String author, int year){};
     public static ArrayList<magazine1> magazines  = new ArrayList<>();
 

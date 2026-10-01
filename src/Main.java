@@ -6,7 +6,6 @@ public class Main{
         AddBook addBook = new AddBook();
         AddUser addUser = new AddUser();
         SearchName searchName = new SearchName();
-        Literature literature = new Literature();
         SearchAuthor searchAuthor = new SearchAuthor();
 
         int choice;
@@ -38,7 +37,7 @@ public class Main{
                         searchName.searchName();
                         break;
                     case 4:
-                        literature.output();
+                        Literature.output();
                         //реализовать
                         break;
                     case 5:

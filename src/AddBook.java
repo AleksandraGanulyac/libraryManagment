@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
 public class AddBook {
-    Literature literature = new Literature();
-    Book book = new Book();
     Magazine magazine = new Magazine();
     Newspapper newspapper = new Newspapper();
 
@@ -51,7 +49,7 @@ public class AddBook {
             //реализовать id с автоматическим увелечением
             //реализовать добавление в ArrayList
         if(type.equals("Книга")){
-            book.add(getId(), name, author, year);
+            Book.add(getId(), name, author, year);
         } else if (type.equals("Журнал")) {
             magazine.add(getId(), name, author, year);
         } else if (type.equals("Газета")) {

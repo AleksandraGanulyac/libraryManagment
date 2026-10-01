@@ -11,20 +11,20 @@ public class SearchAuthor {
         System.out.println("Книги какого автора вы ищите?");
         String search = scanner.nextLine();
 
-        for(Literature.literature1 l:Literature.literatures){
-            if (l.author().equalsIgnoreCase(search)){
+        for(Literature l:Literature.literatures){
+            if (l.author.equalsIgnoreCase(search)){
                if(!found){
                    System.out.println("Вот все книги этого автора: ");
                    found = true;
                }
-                System.out.println("id: " + l.id() + "|Тип: " + l.type() + "|Название: " + l.name() + "|Автор: " + l.author() + "|Год написания: " + l.year());
+                System.out.println("id: " + l.id + "|Тип: " + l.type + "|Название: " + l.name + "|Автор: " + l.author + "|Год написания: " + l.year);
             }
-            else if(l.author().toLowerCase().contains(search.toLowerCase())){
+            else if(l.author.toLowerCase().contains(search.toLowerCase())){
                 if(!partiallyFound){
                     System.out.println("Может вы имели ввиду: ");
                     partiallyFound = true;
                 }
-                System.out.println(l.author());
+                System.out.println(l.author);
             }
         }
         if(!found && !partiallyFound){
