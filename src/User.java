@@ -30,4 +30,21 @@ public class User {
         }
     }
 
+    public String getName() {
+        for(User user:users){
+            if(user.id == id){
+                return user.name;
+            }
+        }
+        return "0";
+    }
+
+    public String getSurname() {
+        for(User user:users){
+            if(user.id == id){
+                return user.surname;
+            }
+        }
+        return "0";
+    }
 }
