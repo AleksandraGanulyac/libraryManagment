@@ -4,6 +4,10 @@ public class Book extends Literature{
 
     static final int storage = 30;
 
+    public Book(int id, String type, String name, String author, int year) {
+        super(id, type, name, author, year);
+    }
+
     static record book1(int id, String name, String author, int year){};
     public static ArrayList<book1> books = new ArrayList<>();
 

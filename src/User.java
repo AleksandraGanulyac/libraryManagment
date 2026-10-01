@@ -19,11 +19,8 @@ public class User {
 
     static ArrayList<User> users = new ArrayList<>();
 
-    public User() {
-    }
 
     public static void add(int id, String name, String surname, String type, int birthday){
-        int numberBook = 0;
         users.add(new User(id, name, surname, type, birthday));
     }
 
