@@ -29,7 +29,7 @@ public class User {
 
     public static void output() {
         for (User user : users) {
-            System.out.println("ID: " + user.id + "|Имя: " + user.name + "|Тип(студент, преподаватель): " + user.type + "|Год рождения: " + user.birthday);
+            System.out.println("ID: " + user.id + "|Имя: " + user.name + "|Тип(студент, преподаватель): " + user.type + "|Год рождения: " + user.birthday + "|Количество взятых книг: " + user.numberBook);
         }
     }
 
