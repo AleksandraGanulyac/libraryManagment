@@ -45,6 +45,7 @@ public class Main{
                         //реализовать
                         break;
                     case 6:
+                        User.output();
                         //реализовать
                         break;
                     case 7:
