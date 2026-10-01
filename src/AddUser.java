@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class AddUser {
-    User user = new User();
     Teacher teacher = new Teacher();
     Student student = new Student();
     Exit exit = new Exit();

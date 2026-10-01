@@ -13,6 +13,6 @@ public class Borrow {
         System.out.print("Введите id книги/журнала/газеты: ");
         int literatureId = scanner.nextInt();
 
-        verification.verefication(userId, literatureId);
+        verification.verefication(userId, literatureId); //если true AddUserBook и LiteraturePresence
     }
 }
