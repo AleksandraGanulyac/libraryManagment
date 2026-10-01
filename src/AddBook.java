@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class AddBook {
-    Magazine magazine = new Magazine();
-    Newspapper newspapper = new Newspapper();
+
 
     Exit exit = new Exit();
     Scanner scanner = new Scanner(System.in);
@@ -51,9 +50,9 @@ public class AddBook {
         if(type.equals("Книга")){
             Book.add(getId(), name, author, year);
         } else if (type.equals("Журнал")) {
-            magazine.add(getId(), name, author, year);
+            Magazine.add(getId(), name, author, year);
         } else if (type.equals("Газета")) {
-            newspapper.add(getId(), name, author, year);
+            Newspapper.add(getId(), name, author, year);
         }
         else{
             System.out.println("Вы неверно ввели тип попробуйте снова");

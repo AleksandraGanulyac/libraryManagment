@@ -15,10 +15,22 @@ public class Borrow {
 
         if(verification.verefication(userId, literatureId)){
             //если true AddUserBook и LiteraturePresence
+            System.out.print("Пользователь: " + userId);
+            for(User user:User.users){
+                if(user.id == userId){
+                    System.out.print(" " + user.name + " " + user.surname);;
+                }
+            }
+
+            System.out.print(" | Произведение: ");
+            for(Literature l:Literature.literatures){
+                if(l.id == literatureId){
+                    System.out.println(l.type + " " + l.name + " " + l.author);
+                }
+            }
+
             AddUserBook.addUserBook(userId);
             LiteraturePresence.literaturePresence(literatureId);
-
-            //реализовать вывод
         }
 
 
