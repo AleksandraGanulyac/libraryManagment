@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        addBook addBook = new addBook();
-        addUser addUser = new addUser();
-        searchName searchName = new searchName();
+        AddBook addBook = new AddBook();
+        AddUser addUser = new AddUser();
+        SearchName searchName = new SearchName();
         Literature literature = new Literature();
-        searchAuthor searchAuthor = new searchAuthor();
+        SearchAuthor searchAuthor = new SearchAuthor();
 
         int choice;
         boolean isRunning = true;

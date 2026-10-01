@@ -6,11 +6,12 @@ public class Literature {
     //сколько можно держать у себя
     // Я не уверена еще насчет реализации id
 
-    static record literature1(int id, String type, String name, String author, int year){};
+    static record literature1(int id, String type, String name, String author, int year, boolean presence){};
     public static ArrayList<literature1> literatures = new ArrayList<>();
 
     public static void add(int id, String type, String name, String author, int year){
-        literatures.add(new literature1(id, type, name, author, year));
+        boolean presence = true;
+        literatures.add(new literature1(id, type, name, author, year, presence));
     }
 
     public static void output(){

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class searchName {
+public class SearchName {
     Scanner scanner = new Scanner(System.in);
     Exit exit = new Exit();
 

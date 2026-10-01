@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class addBook {
+public class AddBook {
     Literature literature = new Literature();
     Book book = new Book();
     Magazine magazine = new Magazine();

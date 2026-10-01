@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class addUser {
+public class AddUser {
     User user = new User();
     Teacher teacher = new Teacher();
     Student student = new Student();
