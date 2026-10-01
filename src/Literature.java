@@ -29,7 +29,13 @@ public class Literature {
 
     public static void output(){
         for(Literature l : literatures){
-            System.out.println("id: " + l.id + "|Тип: " + l.type + "|Название: " + l.name + "|Автор: " + l.author + "|Год написания: " + l.year);
+            System.out.print("id: " + l.id + "|Тип: " + l.type + "|Название: " + l.name + "|Автор: " + l.author + "|Год написания: " + l.year + "|Наличие: ");
+            if(l.presence == true){
+                System.out.println("В наличии");
+            }
+            else{
+                System.out.println("Нет в наличии");
+            }
         }
     }
 
