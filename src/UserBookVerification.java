@@ -1,10 +1,10 @@
 public class UserBookVerification {
     public boolean userBookVerefication(int id){
         for(User user:User.users){
-            if(id == user.id){
+            if(user.id == id){
                 //получаем количество книг, создать getter
                 if(user.type.equalsIgnoreCase("студент")){
-                    if(user.numberBook <= 3){
+                    if(user.numberBook < 3){
                         return true;
                     }
                     else{
@@ -12,7 +12,7 @@ public class UserBookVerification {
                     }
                 }
                 else if(user.type.equalsIgnoreCase("преподаватель")){
-                    if(user.numberBook <= 10){
+                    if(user.numberBook < 10){
                         return true;
                     }
                     else{

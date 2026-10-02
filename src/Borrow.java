@@ -5,7 +5,7 @@ public class Borrow {
 
     Verification verification = new Verification();
 
-    public void Borrow(){
+    public void borrow(){
         System.out.print("Введите id клиента: ");
         int userId = scanner.nextInt();
         //реализовать пользователь не найден попробуйте снова
@@ -13,7 +13,7 @@ public class Borrow {
         System.out.print("Введите id книги/журнала/газеты: ");
         int literatureId = scanner.nextInt();
 
-        if(verification.verefication(userId, literatureId)){
+        if(verification.verefication(userId, literatureId) == true){
             //если true AddUserBook и LiteraturePresence
             System.out.print("Пользователь: " + userId);
             for(User user:User.users){
@@ -31,8 +31,8 @@ public class Borrow {
 
             AddUserBook.addUserBook(userId);
             LiteraturePresence.literaturePresence(literatureId);
+
+            Exit.exit();
         }
-
-
     }
 }

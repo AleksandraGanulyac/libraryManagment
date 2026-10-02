@@ -7,6 +7,7 @@ public class Main{
         AddUser addUser = new AddUser();
         SearchName searchName = new SearchName();
         SearchAuthor searchAuthor = new SearchAuthor();
+        Borrow borrow = new Borrow();
 
         int choice;
         boolean isRunning = true;
@@ -37,7 +38,7 @@ public class Main{
                         searchName.searchName();
                         break;
                     case 4:
-                        Literature.output();
+                        borrow.borrow();
                         //реализовать
                         break;
                     case 5:
@@ -49,6 +50,7 @@ public class Main{
                         //реализовать
                         break;
                     case 7:
+                        Literature.output();
                         //реализовать
                         break;
                     case 8:
