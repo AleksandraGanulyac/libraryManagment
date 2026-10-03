@@ -107,7 +107,7 @@ public class Borrow {
         int literatureId = scanner.nextInt();
 
         if(verification.verefication(userId, literatureId) == true) {
-            AddUserBook.addUserBook(userId);
+            UserBook.addUserBook(userId);
             LiteraturePresence.literaturePresence(literatureId);
 
             borrowOutput(userId, literatureId);
