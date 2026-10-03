@@ -50,7 +50,7 @@ public class Main{
                         //реализовать
                         break;
                     case 7:
-                        Literature.output();
+                        issuanceRepository.output();
                         //реализовать
                         break;
                     case 8:
