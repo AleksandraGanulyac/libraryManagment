@@ -3,18 +3,24 @@ import java.util.ArrayList;
 
 public class issuanceRepository {
     public int id;
+    public int userId;
+    public String userType;
     public String userName;
     public String userSurname;
+    public int literatureId;
     public String literatureType;
     public String literatureName;
     public String literatureAuthor;
     public LocalDate startDays;
     public LocalDate endDays;
 
-    public issuanceRepository(int id, String userName, String userSurname, String literatureType, String literatureName, String literatureAuthor, LocalDate startDays, LocalDate endDays){
+    public issuanceRepository(int i, int id, String userType, String userName, String userSurname, int literatureId, String literatureType, String literatureName, String literatureAuthor, LocalDate startDays, LocalDate endDays){
         this.id = id;
+        this.userId = userId;
+        this.userType = userType;
         this.userName = userName;
         this.userSurname = userSurname;
+        this.literatureId = this.literatureId;
         this.literatureType = literatureType;
         this.literatureName = literatureName;
         this.literatureAuthor = literatureAuthor;
@@ -24,8 +30,8 @@ public class issuanceRepository {
 
     public static ArrayList<issuanceRepository> borrows = new ArrayList<>();
 
-    public static void add(int id, String userName, String userSurname, String literatureType, String literatureName, String literatureAuthor, LocalDate startDays, LocalDate endDays){
-        borrows.add(new issuanceRepository(id, userName, userSurname, literatureType, literatureName, literatureAuthor, startDays, endDays));
+    public static void add(int id, int userId, String userType, String userName, String userSurname, int literatureId, String literatureType, String literatureName, String literatureAuthor, LocalDate startDays, LocalDate endDays){
+        borrows.add(new issuanceRepository(id, userId, userType, userName, userSurname, literatureId, literatureType, literatureName, literatureAuthor, startDays, endDays));
     }
 
     public static void output(){

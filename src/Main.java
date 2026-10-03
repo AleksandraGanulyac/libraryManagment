@@ -23,6 +23,8 @@ public class Main{
             System.out.println("5.Возврат книги");
             System.out.println("6.Просмотр Штрафов");
             System.out.println("7.Отчеты");
+            System.out.println("9.Активные выдачи пользователя");
+            System.out.println("10.Штрафы пользователя");
             System.out.println("8.Выход");
             System.out.print("Выберите и введите цифру, соответствующую нужной информации: ");
             choice = scanner.nextInt();
@@ -54,8 +56,13 @@ public class Main{
                         //реализовать
                         break;
                     case 8:
+                        break;
+                    case 9:
+                        break;
+                    case 10:
                         isRunning = false;
                         break;
+
                     default:
                         System.out.println("Неверный символ, попробуйте еще раз");
                         break;

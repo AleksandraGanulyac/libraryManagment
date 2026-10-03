@@ -8,7 +8,15 @@ public class Borrow {
 
     public static int borrowID = 1;
 
-
+    public String getUserType(int userId){
+        for(User user:User.users) {
+            if (user.id == userId) {
+                String userType = user.type;
+                return userType;
+            }
+        }
+        return "0";
+    }
 
     public String getUserName(int userId){
         for(User user:User.users) {
@@ -87,7 +95,7 @@ public class Borrow {
     }
 
     void addingList(int userId, int literatureId){
-        issuanceRepository.add(borrowID, getUserName(userId), getUserSurname(userId), getLiteratureType(literatureId), getLiteratureName(literatureId), getLiteratureAuthor(literatureId), getStartDays(literatureId), getEndDays(literatureId));
+        issuanceRepository.add(borrowID, userId, getUserType(userId), getUserName(userId), getUserSurname(userId), literatureId, getLiteratureType(literatureId), getLiteratureName(literatureId), getLiteratureAuthor(literatureId), getStartDays(literatureId), getEndDays(literatureId));
     }
 
     public void borrowOutput(int userId, int literatureId){
