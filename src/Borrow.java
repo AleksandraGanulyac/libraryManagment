@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Borrow {
@@ -14,7 +15,10 @@ public class Borrow {
         int literatureId = scanner.nextInt();
 
         if(verification.verefication(userId, literatureId) == true){
+            AddUserBook.addUserBook(userId);
+            LiteraturePresence.literaturePresence(literatureId);
             //если true AddUserBook и LiteraturePresence
+
             System.out.print("Пользователь: " + userId);
             for(User user:User.users){
                 if(user.id == userId){
@@ -25,12 +29,18 @@ public class Borrow {
             System.out.print(" | Произведение: ");
             for(Literature l:Literature.literatures){
                 if(l.id == literatureId){
-                    System.out.println(l.type + " " + l.name + " " + l.author);
+                    l.days = LocalDate.now();
+                    if(l.type.equalsIgnoreCase("книга")){
+                        l.endDays = l.days.plusDays(30);
+                    } else if (l.type.equalsIgnoreCase("журнал")) {
+                        l.endDays = l.days.plusDays(7);
+                    } else if (l.type.equalsIgnoreCase("газета")) {
+                        l.endDays = l.days.plusDays(1);
+                    }
+                    System.out.println(l.type + " " + l.name + " " + l.author + " | Дата начала: " + l.days + " Дата окончания: " + l.endDays);
                 }
             }
 
-            AddUserBook.addUserBook(userId);
-            LiteraturePresence.literaturePresence(literatureId);
 
             Exit.exit();
         }
