@@ -33,7 +33,7 @@ public class User {
         }
     }
 
-    public String getName() {
+    public String getName(int userID) {
         for(User user:users){
             if(user.id == id){
                 return user.name;
@@ -42,7 +42,7 @@ public class User {
         return "0";
     }
 
-    public String getSurname() {
+    public String getSurname(int userID) {
         for(User user:users){
             if(user.id == id){
                 return user.surname;

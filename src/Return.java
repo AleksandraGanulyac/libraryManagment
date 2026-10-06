@@ -5,42 +5,6 @@ import java.util.Scanner;
 public class Return {
     Scanner scanner = new Scanner(System.in);
 
-
-    public LocalDate returnDays(){
-        return LocalDate.now();
-    }
-
-    public long dateComparison(int borrowId){
-        for(issuanceRepository b:issuanceRepository.borrows){
-            if(b.id == borrowId){
-                return ChronoUnit.DAYS.between(b.endDays, returnDays()); //date2 -date1
-            }
-        }
-        return 0;
-    }
-
-    public void dateCheck(int id){
-        for(issuanceRepository b: issuanceRepository.borrows){
-            if(b.id == id){
-                if(returnDays().isBefore(b.endDays)){
-                    System.out.println("Все хорошо, вы вернули вовремя");
-                }
-                else if(returnDays().isAfter(b.endDays)){
-                    System.out.println("Вы задержали книгу, вы должны заплатить штраф.");
-                    if(b.userType.equalsIgnoreCase("Студент")){
-                        long fine = 5;
-                        System.out.print("Штраф: ");
-                        long allFine = fine * dateComparison(id);
-                    } else if (b.userType.equalsIgnoreCase("Преподаватель")) {
-                        int fine = 2;
-                        System.out.print("Штраф: ");
-                        long allFine = fine * dateComparison(id);
-                    }
-                }
-            }
-        }
-    }
-
     public int getLiteratureId(int borrowId){
         for(issuanceRepository b:issuanceRepository.borrows){
             if(b.id == borrowId){
@@ -76,3 +40,9 @@ public class Return {
 // id Фамилия Имя(кол-во книг):
 //      1.id выдачи|Название книги|Автор книги| Дата выдачи|До какого числа вернуть|(если есть) Накопленные штрафы
 //10. Штрафы пользователя
+//id Фамилия Имя(кол-во книг выданных/ просроченных):(просроченные книги)
+//      1. id выдачи| Дата выдачи| Дата окончания | Сколько дней просрочено| Штраф в день| Общий штраф по книге
+//      2. То же самое если несколько книг
+//  Штраф в день:
+//  Общий накопленный штраф:
+//Следующий пользователь

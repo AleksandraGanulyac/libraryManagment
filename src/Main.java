@@ -25,7 +25,8 @@ public class Main{
             System.out.println("7.Отчеты");
             System.out.println("9.Активные выдачи пользователя");
             System.out.println("10.Штрафы пользователя");
-            System.out.println("8.Выход");
+            System.out.println("11.Погасить штраф, частично или полностью");
+            System.out.println("12.Выход");
             System.out.print("Выберите и введите цифру, соответствующую нужной информации: ");
             choice = scanner.nextInt();
             if(1<= choice && choice <= 8){
