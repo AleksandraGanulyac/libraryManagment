@@ -47,7 +47,11 @@ public class issuanceRepository {
         }
     }
 
+
+    //литература
     List<Integer> userBorrowLiterature = new ArrayList<>();
+
+    //получаем id литературы по которой просрочка
 
     public void getBorrowLiterature(int userID){
         for(issuanceRepository b:borrows){
@@ -57,5 +61,46 @@ public class issuanceRepository {
         }
     }
 
+    List<Integer> overdueItems = new ArrayList<>();
+    public void getOverdueItems(){
+        for(issuanceRepository b:borrows){ //проходимся по общему списку
+            for (int l:userBorrowLiterature){ // проходимся по литературе конкретного пользователя
+                if(b.literatureId == l){ //если id сходятся проверяем:
+                    if(b.endDays.isAfter(LocalDate.now())){ //если просроченно добавляем в ArrayList
+                        overdueItems.add(b.literatureId);
+                    }
+                }
+            }
+        }
+    }
+
+    List<Integer> idOverdueBorrows = new ArrayList<>();
+    public void getIdOverdueBorrows(){
+        for(int b:overdueItems){
+            for(issuanceRepository l:borrows){
+                if(b == l.literatureId){
+                    idOverdueBorrows.add(l.id);
+                }
+            }
+        }
+    }
+
+    public LocalDate getStartDays(int userID){
+        for(issuanceRepository b:borrows){
+            if(userID == b.userId){
+                return b.startDays;
+            }
+        }
+        return LocalDate.now();
+    }
+
+    public LocalDate getEndDays(int userID){
+        for(issuanceRepository b:borrows){
+            if(userID == b.userId){
+                return b.endDays;
+            }
+        }
+        return LocalDate.now();
+    }
 
 }
