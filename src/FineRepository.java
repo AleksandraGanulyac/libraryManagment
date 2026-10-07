@@ -66,5 +66,14 @@ public class FineRepository {
             }
         }
     }
+
+    public void allFineInfo(int userID){
+        for(FineRepository all:fineRepositories){
+            if(all.userID == userID){
+                System.out.println("Общий штраф в день: " + all.allDailyFine);
+                System.out.println("Накопленный штраф: " + all.allFine);
+            }
+        }
+    }
     //для вывода литературы перебор idOverdueBorrows и последующее его очищение
 }
