@@ -61,6 +61,7 @@ public class issuanceRepository {
         }
     }
 
+    //id просроченной литературы
     List<Integer> overdueItems = new ArrayList<>();
     public void getOverdueItems(){
         for(issuanceRepository b:borrows){ //проходимся по общему списку
@@ -74,6 +75,7 @@ public class issuanceRepository {
         }
     }
 
+    //id выдач
     List<Integer> idOverdueBorrows = new ArrayList<>();
     public void getIdOverdueBorrows(){
         for(int b:overdueItems){

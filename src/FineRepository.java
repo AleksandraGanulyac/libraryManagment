@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FineRepository {
     User user = new User();
@@ -8,14 +9,14 @@ public class FineRepository {
 
     public int userID; //Получается или вводится, добавлено
     public String userName; //Из user по id добавлено
-    public String userSurname; //Из user по idб добавлено
+    public String userSurname; //Из user по id добавлено
     public int borrowLiterature; //добавлено Вся выданная литература, из issuanceRepository
     public int numberOverdueItems; //добавленое Просроченная литература, сделать getter
-    public int idOverdueBorrows; //именно просрочено получается из issuanceRepository
+    public List<Integer> idOverdueBorrows; //именно просрочено получается из issuanceRepository
     public int daysOverduePayment; //сколько дней просрочено, получать где-нибудь
     public int bookDailyFine; //штраф в день по книге
     public int accumulatedFineBook; //общий штраф по книге(накапливается)
-    public int allDailyFine; //Сколько штрафа капает в день
+    public int allDailyFine = 0; //Сколько штрафа капает в день
     public int allFine; //Общий штраф пользователя
 
     public FineRepository(int userID){
@@ -26,12 +27,18 @@ public class FineRepository {
         this.borrowLiterature = issuanceRepository.userBorrowLiterature.size();
         //очищать каждый раз после добавления в список
         this.numberOverdueItems = issuanceRepository.overdueItems.size();
+        this.idOverdueBorrows = new ArrayList<>(issuanceRepository.idOverdueBorrows);
+        this.allDailyFine = 0;
+        this.allFine = 0;
     }
 
     public static ArrayList<FineRepository> fineRepositories = new ArrayList<>();
 
-    public static void add(int userID){
+    public void add(int userID){
         fineRepositories.add(new FineRepository(userID));
+        issuanceRepository.userBorrowLiterature.clear();
+        issuanceRepository.overdueItems.clear();
+        issuanceRepository.idOverdueBorrows.clear();
     }
 
     public static void generalInformationOutput(){
@@ -44,5 +51,20 @@ public class FineRepository {
         }
     }
 
-
+    public void literatureInfo(int userID){
+        for(FineRepository all:fineRepositories){
+            if(all.userID == userID){
+                for(Integer b:idOverdueBorrows){
+                    for(int i = 1; i <= idOverdueBorrows.size(); i++){
+                        System.out.println(i + ". ID выдачи: " + idOverdueBorrows.get(i-1) + " | " +
+                                "Дни просрочки" +  fine.daysOverduePayment(b) + "Штраф по книге в день: " +
+                                fine.daileFine(userID) + " | Общий штраф по книге: " + fine.daysOverduePayment(b) * fine.daileFine(userID));
+                        all.allDailyFine += fine.daysOverduePayment(b);
+                        all.allFine += fine.daysOverduePayment(b) * fine.daileFine(userID);
+                    }
+                }
+            }
+        }
+    }
+    //для вывода литературы перебор idOverdueBorrows и последующее его очищение
 }

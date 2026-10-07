@@ -21,12 +21,11 @@ public class Main{
             System.out.println("3.Посмотреть книги");
             System.out.println("4.Выдача книги");
             System.out.println("5.Возврат книги");
-            System.out.println("6.Просмотр Штрафов");
-            System.out.println("7.Отчеты");
-            System.out.println("9.Активные выдачи пользователя");
-            System.out.println("10.Штрафы пользователя");
-            System.out.println("11.Погасить штраф, частично или полностью");
-            System.out.println("12.Выход");
+            System.out.println("6.Отчеты");
+            System.out.println("7.Просмотр штрафов");
+            System.out.println("8.Активные выдачи пользователя");
+            System.out.println("9.Погасить штраф, частично или полностью");
+            System.out.println("10.Выход");
             System.out.print("Выберите и введите цифру, соответствующую нужной информации: ");
             choice = scanner.nextInt();
             if(1<= choice && choice <= 8){
