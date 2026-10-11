@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+        Literature literature = new Literature();
+        User user = new User();
         AddBook addBook = new AddBook();
         AddUser addUser = new AddUser();
         SearchName searchName = new SearchName();
@@ -56,8 +58,10 @@ public class Main{
                         //реализовать
                         break;
                     case 8:
+                        literature.output();
                         break;
                     case 9:
+                        user.output();
                         break;
                     case 10:
                         isRunning = false;

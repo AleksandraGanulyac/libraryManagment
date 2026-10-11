@@ -1,12 +1,12 @@
 public class LiteraturePresence {
-    public static void literaturePresence(int id){
-        for(Literature l:Literature.literatures){
-            if(l.id == id && l.presence == true){
-                l.presence = false;
-            }
-            else if(l.id == id && l.presence == false){
-                l.presence = true;
-            }
+    Literature literature = new Literature();
+
+    public void literaturePresence(int id){
+        if(literature.getPresence(id) == true){
+            literature.setLiteraturePresence(id, false);
+        }
+        else if(literature.getPresence(id) == false){
+            literature.setLiteraturePresence(id, true);
         }
     }
 

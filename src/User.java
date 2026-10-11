@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class User {
     public int id;
-    public String name;
-    public String surname;
-    public String type;
-    public int birthday;
-    public int numberBook;
+    private String name;
+    private String surname;
+    private String type;
+    private int birthday; //год
+    private int numberBook; //количество взятых книг
 
     public User(int id, String name, String surname, String type, int birthday) {
         this.id = id;
@@ -33,21 +33,71 @@ public class User {
         }
     }
 
-    public String getName(int userID) {
-        for(User user:users){
-            if(user.id == id){
+    //имя пользователя по ID
+    public String getUserName(int userId){
+        for(User user:users) {
+            if (user.id == userId) {
+                String userName = user.name;
                 return user.name;
             }
         }
         return "0";
     }
 
-    public String getSurname(int userID) {
-        for(User user:users){
-            if(user.id == id){
+    //Фамилия пользователя по ID
+    public String getUserSurname(int userId){
+        for(User user:users) {
+            if (user.id == userId) {
+                String userSurname = user.surname;
                 return user.surname;
             }
         }
         return "0";
+    }
+
+    //Тип пользователя
+    public String getUserType(int userID){
+        for(User user:users) {
+            if (user.id == userID) {
+                return user.type;
+            }
+        }
+        return "0";
+    }
+
+    //Получение и выставление года рождения
+    public int getBirthday(int userID){
+        for(User user:users) {
+            if (user.id == userID) {
+                return user.birthday;
+            }
+        }
+        return 0;
+    }
+
+    //количество взятых книг
+    public int getUserNumberBook(int userID){
+        for(User user:users){
+            if(user.id == userID){
+                return user.numberBook;
+            }
+        }
+        return 0;
+    }
+
+    public void setUserPlusNumberBook(int userID, int numberBook){
+        for(User u:users){
+            if(u.id == userID){
+                u.numberBook += numberBook;
+            }
+        }
+    }
+
+    public void setUserMinusNumberBook(int userID, int numberBook){
+        for(User u:users){
+            if(u.id == userID){
+                u.numberBook -= numberBook;
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class SearchAuthor {
+    Literature literature = new Literature();
     Scanner scanner = new Scanner(System.in);
     Exit exit = new Exit();
 
@@ -12,19 +13,19 @@ public class SearchAuthor {
         String search = scanner.nextLine();
 
         for(Literature l:Literature.literatures){
-            if (l.author.equalsIgnoreCase(search)){
+            if (literature.getLiteratureAuthor().equalsIgnoreCase(search)){
                if(!found){
                    System.out.println("Вот все книги этого автора: ");
                    found = true;
                }
-                System.out.println("id: " + l.id + "|Тип: " + l.type + "|Название: " + l.name + "|Автор: " + l.author + "|Год написания: " + l.year);
+                System.out.println("id: " + literature.id + "|Тип: " + literature.getLiteratureType() + "|Название: " + literature.getLiteratureName() + "|Автор: " + literature.getLiteratureAuthor() + "|Год написания: " + literature.getLiteratureYear());
             }
-            else if(l.author.toLowerCase().contains(search.toLowerCase())){
+            else if(literature.getLiteratureAuthor().toLowerCase().contains(search.toLowerCase())){
                 if(!partiallyFound){
                     System.out.println("Может вы имели ввиду: ");
                     partiallyFound = true;
                 }
-                System.out.println(l.author);
+                System.out.println(literature.getLiteratureAuthor());
             }
         }
         if(!found && !partiallyFound){

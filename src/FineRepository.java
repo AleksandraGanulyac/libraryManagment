@@ -7,22 +7,20 @@ public class FineRepository {
     issuanceRepository issuanceRepository = new issuanceRepository();
     Fine fine = new Fine();
 
-    public int userID; //Получается или вводится, добавлено
-    public String userName; //Из user по id добавлено
-    public String userSurname; //Из user по id добавлено
-    public int borrowLiterature; //добавлено Вся выданная литература, из issuanceRepository
-    public int numberOverdueItems; //добавленое Просроченная литература, сделать getter
-    public List<Integer> idOverdueBorrows; //именно просрочено получается из issuanceRepository
-    public int daysOverduePayment; //сколько дней просрочено, получать где-нибудь
-    public int bookDailyFine; //штраф в день по книге
-    public int accumulatedFineBook; //общий штраф по книге(накапливается)
-    public int allDailyFine = 0; //Сколько штрафа капает в день
+    private int userID; //Получается или вводится, добавлено
+    private String userName; //Из user по id добавлено
+    private String userSurname; //Из user по id добавлено
+    private int borrowLiterature; //добавлено Вся выданная литература, из issuanceRepository
+    private int numberOverdueItems; //добавленое Просроченная литература, сделать getter
+    private List<Integer> idOverdueBorrows; //именно просрочено получается из issuanceRepository
+
+    public int allDailyFine; //Сколько штрафа капает в день
     public int allFine; //Общий штраф пользователя
 
     public FineRepository(int userID){
         this.userID = userID;
-        this.userName = this.user.getName(userID);
-        this.userSurname = this.user.getSurname(userID);
+        this.userName = this.user.getUserName(userID);
+        this.userSurname = this.user.getUserSurname(userID);
         //очищать каждый раз после добавления в список
         this.borrowLiterature = issuanceRepository.userBorrowLiterature.size();
         //очищать каждый раз после добавления в список
@@ -76,4 +74,5 @@ public class FineRepository {
         }
     }
     //для вывода литературы перебор idOverdueBorrows и последующее его очищение
+
 }

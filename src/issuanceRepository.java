@@ -3,17 +3,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class issuanceRepository {
-    public int id;
-    public int userId;
-    public String userType;
-    public String userName;
-    public String userSurname;
-    public int literatureId;
-    public String literatureType;
-    public String literatureName;
-    public String literatureAuthor;
-    public LocalDate startDays;
-    public LocalDate endDays;
+    private int id;
+    private int userId;
+    private String userType;
+    private String userName;
+    private String userSurname;
+    private int literatureId;
+    private String literatureType;
+    private String literatureName;
+    private String literatureAuthor;
+    private LocalDate startDays;
+    private LocalDate endDays;
 
     public issuanceRepository(int id, int userId, String userType, String userName, String userSurname, int literatureId, String literatureType, String literatureName, String literatureAuthor, LocalDate startDays, LocalDate endDays){
         this.id = id;
@@ -52,7 +52,6 @@ public class issuanceRepository {
     List<Integer> userBorrowLiterature = new ArrayList<>();
 
     //получаем id литературы по которой просрочка
-
     public void getBorrowLiterature(int userID){
         for(issuanceRepository b:borrows){
             if(userID == b.userId){
@@ -96,13 +95,44 @@ public class issuanceRepository {
         return LocalDate.now();
     }
 
-    public LocalDate getEndDays(int userID){
+    public LocalDate getEndDays(int borrowsID){
         for(issuanceRepository b:borrows){
-            if(userID == b.userId){
+            if(borrowsID == b.id){
                 return b.endDays;
             }
         }
         return LocalDate.now();
+    }
+
+
+    //userId по выдаче
+    public int getUserID(int borrowID){
+        for(issuanceRepository u:borrows){
+            if(u.id == borrowID){
+                return u.userId;
+            }
+        }
+        return 0;
+    }
+
+    //literatureID по выдаче
+    public int getLiteratureId(int borrowID){
+        for(issuanceRepository u:borrows){
+            if(u.id == borrowID){
+                return u.literatureId;
+            }
+        }
+        return 0;
+    }
+
+    //id выдачи
+    public int getBorrowID(int borrowID) {
+        for(issuanceRepository b:borrows){
+            if(b.id == borrowID){
+                return b.id;
+            }
+        }
+        return 0;
     }
 
 }

@@ -3,107 +3,46 @@ import java.util.Scanner;
 
 public class Borrow {
     Scanner scanner = new Scanner(System.in);
+    UserBook userBook = new UserBook();
+    User user = new User();
+    LiteraturePresence presence = new LiteraturePresence();
+    Literature literature = new Literature();
 
     Verification verification = new Verification();
 
-    public static int borrowID = 1;
+    private static int borrowID = 1;
+    private LocalDate endDays;
 
-    public String getUserType(int userId){
-        for(User user:User.users) {
-            if (user.id == userId) {
-                String userType = user.type;
-                return userType;
-            }
-        }
-        return "0";
-    }
-
-    public String getUserName(int userId){
-        for(User user:User.users) {
-            if (user.id == userId) {
-                String userName = user.name;
-                return userName;
-            }
-        }
-        return "0";
-    }
-
-    public String getUserSurname(int userId){
-        for(User user:User.users) {
-            if (user.id == userId) {
-                String userSurname = user.name;
-                return userSurname;
-            }
-        }
-        return "0";
-    }
-
-    public String getLiteratureType(int literatureId){
-        for(Literature l:Literature.literatures){
-            if(l.id == literatureId){
-                String literatureType = l.type;
-                return literatureType;
-            }
-        }
-        return "0";
-    }
-
-    public String getLiteratureName(int literatureId){
-        for(Literature l:Literature.literatures){
-            if(l.id == literatureId){
-                String literatureName = l.name;
-                return literatureName;
-            }
-        }
-        return "0";
-    }
-
-    public String getLiteratureAuthor(int literatureId){
-        for(Literature l:Literature.literatures){
-            if(l.id == literatureId){
-                String literatureAuthor = l.author;
-                return literatureAuthor;
-            }
-        }
-        return "0";
-    }
-
-    public LocalDate getStartDays(int literatureId){
-        for(Literature l:Literature.literatures) {
-            if (l.id == literatureId) {
-                l.days = LocalDate.now();
-                return l.days;
-            }
-        }
+    private LocalDate getStartDays(){
         return LocalDate.now();
     }
 
-    public LocalDate getEndDays(int literatureId){
+    private LocalDate getEndDays(int literatureId){
         for(Literature l:Literature.literatures){
-            if(l.id == literatureId){
-                if(l.type.equalsIgnoreCase("книга")){
-                    l.endDays = getStartDays(literatureId).plusDays(30);
-                } else if (l.type.equalsIgnoreCase("журнал")) {
-                    l.endDays = getStartDays(literatureId).plusDays(7);
-                } else if (l.type.equalsIgnoreCase("газета")) {
-                    l.endDays = getStartDays(literatureId).plusDays(1);
+            if(literatureId == l.id){
+                if(l.getLiteratureType(literatureId).equalsIgnoreCase("книга")){
+                    endDays = getStartDays().plusDays(30);
+                } else if (l.getLiteratureType(literatureId).equalsIgnoreCase("журнал")) {
+                    endDays = getStartDays().plusDays(7);
+                } else if (l.getLiteratureType(literatureId).equalsIgnoreCase("газета")) {
+                    endDays = getStartDays().plusDays(1);
                 }
             }
-            return l.endDays;
+            return endDays;
         }
         return LocalDate.now();
     }
 
-    void addingList(int userId, int literatureId){
-        issuanceRepository.add(borrowID, userId, getUserType(userId), getUserName(userId), getUserSurname(userId), literatureId, getLiteratureType(literatureId), getLiteratureName(literatureId), getLiteratureAuthor(literatureId), getStartDays(literatureId), getEndDays(literatureId));
+    private void addingList(int userId, int literatureId){
+        issuanceRepository.add(borrowID, userId, user.getUserType(userId), user.getUserName(userId), user.getUserSurname(userId), literatureId, literature.getLiteratureType(literatureId), literature.getLiteratureName(literatureId), literature.getLiteratureAuthor(literatureId), getStartDays(), getEndDays(literatureId));
     }
 
     public void borrowOutput(int userId, int literatureId){
         System.out.println("id взятия: " + borrowID + " | Имя пользователя: "
-                + getUserName(userId) + " | Фамилия пользователя: " + getUserSurname(userId) +
-                " | Тип литературы: " + getLiteratureType(literatureId) + " | Название литературы: " +
-                getLiteratureName(literatureId) + " | Автор: " + getLiteratureAuthor(literatureId) +
-                " | Дата сделки: " + getStartDays(literatureId) + " | Дата окончания: " +
+                + user.getUserName(userId) + " | Фамилия пользователя: " + user.getUserSurname(userId) +
+                " | Тип литературы: " + literature.getLiteratureType(literatureId) + " | Название литературы: " +
+                literature.getLiteratureName(literatureId) + " | Автор: " + literature.getLiteratureAuthor(literatureId) +
+                " | Дата сделки: " + getStartDays() + " | Дата окончания: " +
                 getEndDays(literatureId));
     }
 
@@ -115,8 +54,8 @@ public class Borrow {
         int literatureId = scanner.nextInt();
 
         if(verification.verefication(userId, literatureId) == true) {
-            UserBook.addUserBook(userId);
-            LiteraturePresence.literaturePresence(literatureId);
+            userBook.addUserBook(userId);
+            presence.literaturePresence(literatureId);
 
             borrowOutput(userId, literatureId);
             addingList(userId, literatureId);
@@ -129,5 +68,4 @@ public class Borrow {
             Exit.exit();
         }
     }
-
 }

@@ -1,13 +1,9 @@
 import java.util.Scanner;
 
 public class AddBook {
-
-
+    Literature literature = new Literature();
     Exit exit = new Exit();
     Scanner scanner = new Scanner(System.in);
-    public String name;
-    public String author;
-    public int year;
 
     private static int id = 1;
     public boolean choice = true;
@@ -20,48 +16,66 @@ public class AddBook {
         return id;
     }
 
-    public void addBook(){
+    private String type(){
         System.out.println("Введите тип(книга, журнал, газета): ");
         String type = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
         if (!type.isEmpty()){
-            type = type.substring(0,1).toUpperCase() + type.substring(1);
+            type = type.substring(0,1).toUpperCase() + type.substring(1).toLowerCase();
         }
-        //Реализовать добавление в нужный массив в зависимости от выбора
+        return type;
+    }
 
+    private String name(){
         System.out.println("Введите название: ");
-        name = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
+        String name = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
         if (!name.isEmpty()){
-            name = name.substring(0,1).toUpperCase() + name.substring(1);
+            name = name.substring(0,1).toUpperCase() +name.substring(1).toLowerCase();
         }
+        return name;
+    }
 
+    private String author(){
         System.out.println("Введите автора: ");
-        author = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
+        String author = scanner.nextLine();// какая нибудь проверка на текст чтобы не вылетало с ошибкой
         if (!author.isEmpty()){
-            author = author.substring(0,1).toUpperCase() + author.substring(1);
+           author =  author.substring(0,1).toUpperCase() + author.substring(1).toLowerCase();
         }
+        return author;
+    }
 
+    private int year(){
         System.out.println("Введите год издания: ");
-        year = scanner.nextInt(); // какая нибудь проверка на число чтобы не вылетало с ошибкой
+        int year = scanner.nextInt(); // какая нибудь проверка на число чтобы не вылетало с ошибкой
         scanner.nextLine();
+        return year;
+    }
 
-            //реализовать вывод с ID|Тип|Название|Автор|Год издания|На сколько можно взять(в зависимости от типа)
-            //реализовать id с автоматическим увелечением
-            //реализовать добавление в ArrayList
-        if(type.equals("Книга")){
-            Book.add(getId(), name, author, year);
-        } else if (type.equals("Журнал")) {
-            Magazine.add(getId(), name, author, year);
-        } else if (type.equals("Газета")) {
-            Newspapper.add(getId(), name, author, year);
+    private void distributionByType(){
+        if(literature.getLiteratureType().equals("Книга")){
+            Book.add(getId(), literature.getLiteratureName(), literature.getLiteratureAuthor(), literature.getLiteratureYear());
+        } else if (literature.getLiteratureType().equals("Журнал")) {
+            Magazine.add(getId(), literature.getLiteratureName(), literature.getLiteratureAuthor(), literature.getLiteratureYear());
+        } else if (literature.getLiteratureType().equals("Газета")) {
+            Newspapper.add(getId(), literature.getLiteratureName(), literature.getLiteratureAuthor(), literature.getLiteratureYear());
         }
         else{
             System.out.println("Вы неверно ввели тип попробуйте снова");
             Exit.exit();
         }
-        Literature.add(getId(), type,  name, author, year);
+    }
 
+    private void output(){
         System.out.println("Вы добавили: ");
-        System.out.printf("ID: " + getId() + " | Тип: %s | Название: %s | Автор: %s | Год написаниея: %d" , type, name, author, year);
+        System.out.printf("ID: " + getId() + " | Тип: %s | Название: %s | Автор: %s | Год написаниея: %d" ,
+                literature.getLiteratureType(getId()), literature.getLiteratureName(getId()), literature.getLiteratureAuthor(getId()),
+                literature.getLiteratureYear(getId()));
+    }
+
+    public void addBook(){
+        literature.add(getId(), type(), name(), author(), year());
+        distributionByType();
+
+        output();
         increment();
 
         Continue();
@@ -81,11 +95,10 @@ public class AddBook {
                 Exit.exit();
                 break;
             default:
-                System.out.println("Неверная цифра попробуйте снвоа");
+                System.out.println("Неверная цифра попробуйте снова");
                 Continue();
                 break;
         }
-        scanner.close();
     }
 
 }

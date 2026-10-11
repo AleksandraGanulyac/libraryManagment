@@ -3,32 +3,17 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Return {
+    UserBook userBook = new UserBook();
     Scanner scanner = new Scanner(System.in);
-
-    public int getLiteratureId(int borrowId){
-        for(issuanceRepository b:issuanceRepository.borrows){
-            if(b.id == borrowId){
-                return b.literatureId;
-            }
-        }
-        return 0;
-    }
-
-    public int getUserId(int borrowId){
-        for(issuanceRepository b:issuanceRepository.borrows){
-            if(b.id == borrowId){
-                return b.userId;
-            }
-        }
-        return 0;
-    }
+    issuanceRepository issuanceRepository = new issuanceRepository();
+    LiteraturePresence presence = new LiteraturePresence();
 
     public void returnBook(){
         System.out.println("Введите id выдачи: ");
         int borrowId = scanner.nextInt();
 
-        LiteraturePresence.literaturePresence(getLiteratureId(borrowId));
-        UserBook.putAwayUserBook(getUserId(borrowId));
+        presence.literaturePresence(issuanceRepository.getLiteratureId(borrowId));
+        userBook.putAwayUserBook(issuanceRepository.getUserID(borrowId));
         issuanceRepository.borrows.remove(borrowId - 1);
     }
 }

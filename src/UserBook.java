@@ -1,17 +1,18 @@
 public class UserBook {
+    User user = new User();
 
-    public static void addUserBook(int id){
+    public void addUserBook(int id){
         for(User user:User.users){
             if(user.id == id){
-                user.numberBook += 1;
+                user.setUserPlusNumberBook(id, 1);
             }
         }
     }
 
-    public static void putAwayUserBook(int id){
+    public void putAwayUserBook(int id){
         for(User user:User.users){
             if(user.id == id){
-                user.numberBook -= 1;
+                user.setUserMinusNumberBook(id, 1);
             }
         }
     }

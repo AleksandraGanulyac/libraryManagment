@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class SearchName {
+    Literature literature = new Literature();
     Scanner scanner = new Scanner(System.in);
     Exit exit = new Exit();
 
@@ -9,15 +10,15 @@ public class SearchName {
         String enter = scanner.nextLine().toLowerCase();
 
         for(Literature l:Literature.literatures){
-            if(l.name.equalsIgnoreCase(enter)){
+            if(literature.getLiteratureName().equalsIgnoreCase(enter)){
                 System.out.println("Книга найдена!");
-                System.out.println("id: " + l.id + "|Тип: " + l.type + "|Название: " + l.name + "|Автор: " + l.author + "|Год написания: " + l.year);
+                System.out.println("id: " + l.id + "|Тип: " + literature.getLiteratureType() + "|Название: " + literature.getLiteratureName() + "|Автор: " + literature.getLiteratureAuthor() + "|Год написания: " + literature.getLiteratureYear());
             }
-            else if(l.name.toLowerCase().contains(enter)){
+            else if(literature.getLiteratureName().toLowerCase().contains(enter)){
                 System.out.println("Найдено частичное совпадение");
-                System.out.println("id: " + l.id + "|Тип: " + l.type + "|Название: " + l.name + "|Автор: " + l.author + "|Год написания: " + l.year);
+                System.out.println("id: " + l.id + "|Тип: " + literature.getLiteratureType() + "|Название: " + literature.getLiteratureName() + "|Автор: " + literature.getLiteratureAuthor() + "|Год написания: " + literature.getLiteratureYear());
             }
-            else if (!l.name.toLowerCase().contains(enter)){
+            else if (!literature.getLiteratureName().toLowerCase().contains(enter)){
                 System.out.println("Книга не найдена");
             }
         }
