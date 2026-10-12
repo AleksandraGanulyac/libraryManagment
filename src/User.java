@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
     public int id;
@@ -8,96 +10,95 @@ public class User {
     private int birthday; //год
     private int numberBook; //количество взятых книг
 
-    public User(int id, String name, String surname, String type, int birthday) {
-        this.id = id;
+    public User(String name, String surname, String type, int birthday) {
         this.name = name;
         this.surname = surname;
         this.type = type;
         this.birthday = birthday;
         this.numberBook = 0; // по умолчанию
     }
-
-    static ArrayList<User> users = new ArrayList<>();
+    private static Map<Integer, User> users = new HashMap<>();
 
     public User() {
     }
 
 
-    public static void add(int id, String name, String surname, String type, int birthday){
-        users.add(new User(id, name, surname, type, birthday));
+    public void add(int id, String name, String surname, String type, int birthday){
+        users.put(id, new User(name, surname, type, birthday));
     }
 
-    public static void output() {
-        for (User user : users) {
-            System.out.println("ID: " + user.id + "|Имя: " + user.name + "|Тип(студент, преподаватель): " + user.type + "|Год рождения: " + user.birthday + "|Количество взятых книг: " + user.numberBook);
+   public static void output() {
+        for (Map.Entry<Integer, User> entry : users.entrySet()) {
+            Integer id = entry.getKey();
+            User user = entry.getValue();
+
+            System.out.println("ID пользователя: " + id + " | Имя: " + user.getName() +
+                    " | Фамилия: " + user.getSurname() + " | Тип(преподаватель, студент): "
+            + user.getType() + " | Год рождения: " + user.getBirthday() + " | Количество взятых книг: "
+            + user.getNumberBook());
+
         }
     }
 
-    //имя пользователя по ID
-    public String getUserName(int userId){
-        for(User user:users) {
-            if (user.id == userId) {
-                String userName = user.name;
-                return user.name;
-            }
+    public void outputByID(int id){
+        User user = users.get(id);
+        if(user != null){
+            System.out.println("ID пользователя: " + id + " | Имя: " + user.getName() +
+                    " | Фамилия: " + user.getSurname() + " | Тип(преподаватель, студент): "
+                    + user.getType() + " | Год рождения: " + user.getBirthday() + " | Количество взятых книг: "
+                    + user.getNumberBook());
         }
-        return "0";
     }
 
-    //Фамилия пользователя по ID
-    public String getUserSurname(int userId){
-        for(User user:users) {
-            if (user.id == userId) {
-                String userSurname = user.surname;
-                return user.surname;
-            }
-        }
-        return "0";
+    public String getName() {
+        return name;
     }
 
-    //Тип пользователя
-    public String getUserType(int userID){
-        for(User user:users) {
-            if (user.id == userID) {
-                return user.type;
-            }
+    public static String getNameByID(int id){
+        User user = users.get(id);
+        if(user != null){
+            return user.getName();
         }
-        return "0";
+        return "Пользователь не найден";
     }
 
-    //Получение и выставление года рождения
-    public int getBirthday(int userID){
-        for(User user:users) {
-            if (user.id == userID) {
-                return user.birthday;
-            }
+    public String getSurname() {
+        return surname;
+    }
+
+    public static String getSurnameByID(int id){
+        User user = users.get(id);
+        if(user != null){
+            return user.getSurname();
+        }
+        return "Пользователь не найден";
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public static String getTypeByID(int id){
+        User user = users.get(id);
+        if(user != null){
+            return user.getType();
+        }
+        return "Пользователь не найден";
+    }
+
+    public int getBirthday() {
+        return birthday;
+    }
+
+    public static int getBirthdayByID(int id){
+        User user = users.get(id);
+        if(user != null){
+            return user.getBirthday();
         }
         return 0;
     }
 
-    //количество взятых книг
-    public int getUserNumberBook(int userID){
-        for(User user:users){
-            if(user.id == userID){
-                return user.numberBook;
-            }
-        }
-        return 0;
-    }
-
-    public void setUserPlusNumberBook(int userID, int numberBook){
-        for(User u:users){
-            if(u.id == userID){
-                u.numberBook += numberBook;
-            }
-        }
-    }
-
-    public void setUserMinusNumberBook(int userID, int numberBook){
-        for(User u:users){
-            if(u.id == userID){
-                u.numberBook -= numberBook;
-            }
-        }
+    public int getNumberBook() {
+        return numberBook;
     }
 }

@@ -1,4 +1,4 @@
-public class UserBookVerification {
+/*public class UserBookVerification {
     User user = new User();
     public boolean userBookVerefication(int id){
         for(User user:User.users){
@@ -26,4 +26,4 @@ public class UserBookVerification {
         }
         return false; // реализовать пользователь не найден
     }
-}
+}*/

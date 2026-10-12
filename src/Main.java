@@ -9,7 +9,7 @@ public class Main{
         AddUser addUser = new AddUser();
         SearchName searchName = new SearchName();
         SearchAuthor searchAuthor = new SearchAuthor();
-        Borrow borrow = new Borrow();
+        //Borrow borrow = new Borrow();
 
         int choice;
         boolean isRunning = true;
@@ -41,12 +41,13 @@ public class Main{
                         //реализовано
                         break;
                     case 3:
-                        literature.output();
+                        user.output();
+                        //literature.output();
                         //Тут плюсом поиск книг 1)по автору 2)по названию 3) по id 4)вывод по типам то есть можно посмотреть
                         //книги журналы и газеты
                         break;
                     case 4:
-                        borrow.borrow();
+                        //borrow.borrow();
                         //реализовано
                         break;
                     case 5:
@@ -118,3 +119,5 @@ public class Main{
 //  Штраф в день:
 //  Общий накопленный штраф:
 //Следующий пользователь
+
+//Перевести все в HashMap

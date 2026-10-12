@@ -20,10 +20,10 @@ public class AddUser {
 
     //Распределение по типам
     private void distributionByType(){
-        if(user.getUserType(getId()).equals("Студент")){
-            student.add(getId(), user.getUserName(getId()), user.getUserSurname(getId()), user.getBirthday(getId()));
-        } else if (user.getUserType(getId()).equals("Преподаватель")) {
-            student.add(getId(), user.getUserName(getId()), user.getUserSurname(getId()), user.getBirthday(getId()));
+        if(user.getTypeByID(id).equals("Студент")){
+            student.add(getId(), user.getNameByID(getId()), user.getSurnameByID(getId()), user.getBirthdayByID(getId()));
+        } else if (user.getTypeByID(id).equals("Преподаватель")) {
+            student.add(getId(), user.getNameByID(getId()), user.getSurnameByID(getId()), user.getBirthdayByID(getId()));
         }
         else{
             System.out.println("Вы неверно ввели тип попробуйте снова");
@@ -68,13 +68,14 @@ public class AddUser {
     private void output(){
         System.out.println("Вы добавили: ");
         System.out.printf("ID: " + getId() + " | Имя: %s | Фамилия: %s | Тип(преподаватель, студент): %s | Год рождения: %s",
-                user.getUserName(getId()), user.getUserSurname(getId()), user.getUserType(getId()), user.getBirthday(getId()));
+                user.getName(), user.getSurname(), user.getType(), user.getBirthday());
     }
 
     public void addUser(){
-        User.add(getId(), name(), surname(), type(), year());
+        user.add(getId(), name(), surname(), type(), year());
         distributionByType();
-        output();
+        System.out.println("Вы добавили: ");
+        user.outputByID(getId());
         increment();
         Continue();
     }
