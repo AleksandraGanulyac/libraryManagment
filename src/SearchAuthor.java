@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class SearchAuthor {
     Literature literature = new Literature();
@@ -35,4 +35,4 @@ public class SearchAuthor {
         scanner.close();
 
     }
-}
+}*/

@@ -50,32 +50,25 @@ public class AddBook {
         return year;
     }
 
-    private void distributionByType(){
-        if(literature.getLiteratureType().equals("Книга")){
-            Book.add(getId(), literature.getLiteratureName(), literature.getLiteratureAuthor(), literature.getLiteratureYear());
-        } else if (literature.getLiteratureType().equals("Журнал")) {
-            Magazine.add(getId(), literature.getLiteratureName(), literature.getLiteratureAuthor(), literature.getLiteratureYear());
-        } else if (literature.getLiteratureType().equals("Газета")) {
-            Newspapper.add(getId(), literature.getLiteratureName(), literature.getLiteratureAuthor(), literature.getLiteratureYear());
+    /*private void distributionByType(){
+        if(literature.getTypeByID(getId()).equals("Книга")){
+            Book.add(getId(), literature.getNameByID(getId()), literature.getAuthorByID(getId()), literature.getYearByID(getId()));
+        } else if (literature.getTypeByID(getId()).equals("Журнал")) {
+            Magazine.add(getId(), literature.getNameByID(getId()), literature.getAuthorByID(getId()), literature.getYearByID(getId()));
+        } else if (literature.getTypeByID(getId()).equals("Газета")) {
+            Newspapper.add(getId(), literature.getNameByID(getId()), literature.getAuthorByID(getId()), literature.getYearByID(getId()));
         }
         else{
             System.out.println("Вы неверно ввели тип попробуйте снова");
             Exit.exit();
         }
-    }
-
-    private void output(){
-        System.out.println("Вы добавили: ");
-        System.out.printf("ID: " + getId() + " | Тип: %s | Название: %s | Автор: %s | Год написаниея: %d" ,
-                literature.getLiteratureType(getId()), literature.getLiteratureName(getId()), literature.getLiteratureAuthor(getId()),
-                literature.getLiteratureYear(getId()));
-    }
+    }*/
 
     public void addBook(){
         literature.add(getId(), type(), name(), author(), year());
-        distributionByType();
+        //distributionByType();
 
-        output();
+        literature.outputByID(getId());
         increment();
 
         Continue();

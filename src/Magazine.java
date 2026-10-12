@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 
 public class Magazine extends Literature{
     static final int storage = 7;
@@ -18,5 +18,5 @@ public class Magazine extends Literature{
             System.out.println("ID: "+ magazine.id +"|Название: " + magazine.name() + "|Автор: " + magazine.author() + "|Год написания: " + magazine.year() + "|Срок хранения: " + storage);
         }
     }
-}
+}*/
 

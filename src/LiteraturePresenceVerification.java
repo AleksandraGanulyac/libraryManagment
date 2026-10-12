@@ -1,4 +1,4 @@
-public class LiteraturePresenceVerification {
+/*public class LiteraturePresenceVerification {
     Literature literature = new Literature();
 
     public boolean literaturePresenceVerefication(int id) {
@@ -9,4 +9,4 @@ public class LiteraturePresenceVerification {
             return false;
         }
     }
-}
+}*/

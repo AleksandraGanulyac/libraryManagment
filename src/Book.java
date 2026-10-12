@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 
 public class Book extends Literature{
 
@@ -19,4 +19,4 @@ public class Book extends Literature{
             System.out.println("ID: "+ book.id +"|Название: " + book.name() + "|Автор: " + book.author() + "|Год написания: " + book.year() + "|Срок хранения: " + storage);
         }
     }
-}
+}*/

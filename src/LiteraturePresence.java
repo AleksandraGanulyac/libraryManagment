@@ -1,4 +1,4 @@
-public class LiteraturePresence {
+/*public class LiteraturePresence {
     Literature literature = new Literature();
 
     public void literaturePresence(int id){
@@ -11,4 +11,4 @@ public class LiteraturePresence {
     }
 
 
-}
+}*/

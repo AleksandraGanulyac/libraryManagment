@@ -7,8 +7,8 @@ public class Main{
         User user = new User();
         AddBook addBook = new AddBook();
         AddUser addUser = new AddUser();
-        SearchName searchName = new SearchName();
-        SearchAuthor searchAuthor = new SearchAuthor();
+        //SearchName searchName = new SearchName();
+        //SearchAuthor searchAuthor = new SearchAuthor();
         //Borrow borrow = new Borrow();
 
         int choice;
@@ -47,6 +47,7 @@ public class Main{
                         //книги журналы и газеты
                         break;
                     case 4:
+                        literature.output();
                         //borrow.borrow();
                         //реализовано
                         break;

@@ -35,9 +35,15 @@ public class Literature {
             Integer id = entry.getKey();
             Literature literature = entry.getValue();
 
-            System.out.println("ID книги: " + id + " | Тип: " + literature.getType() +
+            System.out.print("ID книги: " + id + " | Тип: " + literature.getType() +
                     " | Название книги: " + literature.getName() +
-                    " | Автор: " + literature.getAuthor() + " | Год написания: " + literature.getYear());
+                    " | Автор: " + literature.getAuthor() + " | Год написания: " + literature.getYear() + " | ");
+            if(literature.presence == true){
+                System.out.println(" В наличии");
+            }
+            else{
+                System.out.println("Нет в наличии");
+            }
         }
     }
 
