@@ -1,5 +1,6 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Literature {
     LocalDate currentDate = LocalDate.now();
@@ -11,8 +12,7 @@ public class Literature {
     private int year;
     private boolean presence;
 
-    public Literature(int id, String type, String name, String author, int year) {
-        this.id = id;
+    public Literature(String type, String name, String author, int year) {
         this.type = type;
         this.name = name;
         this.author = author;
@@ -20,101 +20,81 @@ public class Literature {
         this.presence = true;// по умолчанию
 
     }
-    public static ArrayList<Literature> literatures = new ArrayList<>();
+
+    private static Map<Integer, Literature> literatures = new HashMap<>();
 
     public Literature() {
     }
 
-    public static void add(int id, String type, String name, String author, int year){
-        literatures.add(new Literature(id, type, name, author, year));
+    public static void add(int id, String type, String name, String author, int year) {
+        literatures.put(id, new Literature(type, name, author, year));
     }
 
     public static void output(){
-        for(Literature l : literatures){
-            System.out.print("id: " + l.id + "|Тип: " + l.type + "|Название: " + l.name + "|Автор: " + l.author + "|Год написания: " + l.year + "|Наличие: ");
-            if(l.presence == true){
-                System.out.println("В наличии");
-            }
-            else{
-                System.out.println("Нет в наличии");
-            }
+        for(Map.Entry<Integer, Literature> entry:literatures.entrySet()){
+            Integer id = entry.getKey();
+            Literature literature = entry.getValue();
+
+            System.out.println("ID книги: " + id + " | Тип: " + literature.getType() +
+                    " | Название книги: " + literature.getName() +
+                    " | Автор: " + literature.getAuthor() + " | Год написания: " + literature.getYear());
         }
     }
 
-    //Тип литературы по id
-    public String getLiteratureType(int literatureId){
-        for(Literature l:literatures){
-            if(l.id == literatureId){
-                return l.type;
-            }
+    public void outputByID(int id){
+        Literature literature = literatures.get(id);
+        if(literature != null){
+            System.out.println("ID книги: " + id + " | Тип: " + literature.getType() +
+                    " | Название книги: " + literature.getName() +
+                    " | Автор: " + literature.getAuthor() + " | Год написания: " + literature.getYear());
         }
-        return "0";
     }
-    public String getLiteratureType(){
+
+    public String getType() {
         return type;
     }
 
-    //название литературы по id
-    public String getLiteratureName(int literatureId){
-        for(Literature l:literatures){
-            if(l.id == literatureId){
-                return l.name;
-            }
+    public String getTypeByID(int id) {
+        Literature literature = literatures.get(id);
+        if(literature != null){
+            return literature.getType();
         }
-        return "0";
+        return "Книга не найдена";
     }
 
-    public String getLiteratureName(){
+    public String getName() {
         return name;
     }
 
-    //Автор по id
-    public String getLiteratureAuthor(int literatureId){
-        for(Literature l:literatures){
-            if(l.id == literatureId){
-                return l.author;
-            }
+    public String getNameByID(int id) {
+        Literature literature = literatures.get(id);
+        if(literature != null){
+            return literature.getName();
         }
-        return "0";
+        return "Книга не найдена";
     }
 
-    public String getLiteratureAuthor(){
+    public String getAuthor() {
         return author;
     }
 
-    //получаем год написания
-    public int getLiteratureYear(int literatureId){
-        for(Literature l:literatures){
-            if(l.id == literatureId){
-                return l.year;
-            }
+    public String getAuthorByID(int id) {
+        Literature literature = literatures.get(id);
+        if(literature != null){
+            return literature.getAuthor();
         }
-        return 0;
+        return "Книга не найдена";
     }
 
-    public int getLiteratureYear(){
+    public int getYear() {
         return year;
     }
 
-    //Получение наличия
-    public boolean getPresence(int literatureID){
-        for(Literature l:literatures){
-            if(l.id == literatureID){
-                return l.presence;
-            }
+    public int getYearByID(int id) {
+        Literature literature = literatures.get(id);
+        if(literature != null){
+            return literature.getYear();
         }
-        return false;
-    }
-
-    public void setLiteraturePresence(int literatureID, boolean presence){
-        for(Literature l:literatures){
-            if(l.id == literatureID){
-                l.presence = presence;
-            }
-        }
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        return 0;
     }
 }
