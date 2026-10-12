@@ -3,19 +3,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Return {
-    UserBook userBook = new UserBook();
-    Scanner scanner = new Scanner(System.in);
-    issuanceRepository issuanceRepository = new issuanceRepository();
-    LiteraturePresence presence = new LiteraturePresence();
 
-    public void returnBook(){
-        System.out.println("Введите id выдачи: ");
-        int borrowId = scanner.nextInt();
-
-        presence.literaturePresence(issuanceRepository.getLiteratureId(borrowId));
-        userBook.putAwayUserBook(issuanceRepository.getUserID(borrowId));
-        issuanceRepository.borrows.remove(borrowId - 1);
-    }
 }
 
 
