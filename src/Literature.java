@@ -47,7 +47,7 @@ public class Literature {
         }
     }
 
-    public void outputByID(int id){
+    public static void outputByID(int id){
         Literature literature = literatures.get(id);
         if(literature != null){
             System.out.println("ID книги: " + id + " | Тип: " + literature.getType() +
