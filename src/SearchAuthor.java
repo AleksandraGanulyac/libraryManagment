@@ -6,10 +6,10 @@ public class SearchAuthor {
     Scanner scanner = new Scanner(System.in);
     Exit exit = new Exit();
 
-    boolean found = false;
-    boolean partiallyFound = false;
+    private static boolean found = false;
+    private static boolean partiallyFound = false;
 
-    public void searchBook(String search){
+    private void searchBook(String search){
         for(Map.Entry<Integer, Literature> entry: Literature.literatures.entrySet()){
             Integer ID = entry.getKey();
             Literature literature1 = entry.getValue();
@@ -42,8 +42,9 @@ public class SearchAuthor {
         System.out.println("Книги какого автора вы ищите?");
         String search = scanner.nextLine();
         searchBook(search);
+        found = false;
+        partiallyFound = false;
         exit.exit();
-        scanner.close();
 
     }
 }

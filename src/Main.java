@@ -7,7 +7,7 @@ public class Main{
         User user = new User();
         AddBook addBook = new AddBook();
         AddUser addUser = new AddUser();
-        //SearchName searchName = new SearchName();
+        SearchName searchName = new SearchName();
         SearchAuthor searchAuthor = new SearchAuthor();
         //Borrow borrow = new Borrow();
 
@@ -65,6 +65,7 @@ public class Main{
                         //минусуются на 1 выдачи пользователя
                         break;
                     case 6:
+                        searchName.searchName();
                         //отчеты
                         //1) Посмотреть все книги
                         //2) Книги в наличии
