@@ -1,17 +1,30 @@
-/*import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Student extends User{
-    public static record student(int id, String name, String surname, int birthday){};
-
-    static ArrayList<student> students = new ArrayList<>();
-
-    public static void add(int id, String name, String surname, int birthday){
-        students.add(new student(id, name, surname, birthday));
+    public Student(String name, String surname, String type, int birthday){
+        super(name, surname,type, birthday);
+        final int maxBook = 3;
+        final double fine = 5;
     }
 
-    public static void output(){
-        for(student student:students){
-            System.out.println("ID: " + student.id() + "|Имя: " + student.name()  + "|Год рождения: " + student.birthday());
+    private static Map<Integer, Student> students = new HashMap<>();
+
+    public void add(int id, String name, String surname, String type, int birthday){
+        students.put(id, new Student(name, surname, type, birthday));
+    }
+
+    @Override
+    public void output(){
+        for(Map.Entry<Integer, Student> entry:students.entrySet()){
+            Integer ID = entry.getKey();
+            Student student = entry.getValue();
+
+            System.out.println("ID пользователя: " + id + " | Имя: " + getName() +
+                    " | Фамилия: " + getSurname()  + " | Год рождения: " + getBirthday() + " | Количество взятых книг: "
+                    + getNumberBook());
         }
     }
-}*/
+
+
+}

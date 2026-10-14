@@ -15,6 +15,8 @@ public class User {
         this.type = type;
         this.birthday = birthday;
         this.numberBook = 0; // по умолчанию
+        final int maxBook;
+        final double fine;
     }
     private static Map<Integer, User> users = new HashMap<>();
 
@@ -26,15 +28,15 @@ public class User {
         users.put(id, new User(name, surname, type, birthday));
     }
 
-   public static void output() {
+   public void output() {
         for (Map.Entry<Integer, User> entry : users.entrySet()) {
             Integer id = entry.getKey();
             User user = entry.getValue();
 
-            System.out.println("ID пользователя: " + id + " | Имя: " + user.getName() +
-                    " | Фамилия: " + user.getSurname() + " | Тип(преподаватель, студент): "
-            + user.getType() + " | Год рождения: " + user.getBirthday() + " | Количество взятых книг: "
-            + user.getNumberBook());
+            System.out.println("ID пользователя: " + id + " | Имя: " + getName() +
+                    " | Фамилия: " + getSurname() + " | Тип(преподаватель, студент): "
+            + getType() + " | Год рождения: " + getBirthday() + " | Количество взятых книг: "
+            + getNumberBook());
 
         }
     }
@@ -100,4 +102,6 @@ public class User {
     public int getNumberBook() {
         return numberBook;
     }
+
+
 }
