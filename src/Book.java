@@ -1,22 +1,46 @@
-/*import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Book extends Literature{
 
-    static final int storage = 30;
+    static final int storage = 30;//Хранение
+    private boolean presence;
 
-    public Book(int id, String type, String name, String author, int year) {
-        super(id, type, name, author, year);
+    public Book(String type, String name, String author, int year) {
+        super(type, name, author, year);
+        final int storage = 30;
+        this.presence = true;
+
     }
 
-    static record book1(int id, String name, String author, int year){};
-    public static ArrayList<book1> books = new ArrayList<>();
+   public static Map<Integer, Book> books = new HashMap<>();
 
-    public static void add(int id, String name, String author, int year){
-        books.add(new book1(id, name, author, year));
+    public static void add(int id, String type, String name, String author, int year){
+        books.put(id, new Book(type, name, author, year));
     }
-    public static void output(){
-        for(book1 book:books){
-            System.out.println("ID: "+ book.id +"|Название: " + book.name() + "|Автор: " + book.author() + "|Год написания: " + book.year() + "|Срок хранения: " + storage);
+
+    @Override
+    public void output(){
+        for(Map.Entry<Integer, Book> entry:books.entrySet()){
+            Integer ID = entry.getKey();
+            Book book = entry.getValue();
+
+            System.out.print("ID книги: " + ID + " | Название книги: " + getName() +
+                    " | Автор книги: " + getAuthor() +  " | Год написания: " + getYear());
+            if(book.presence == true){
+                System.out.println(" | В наличии");
+            }
+            else{
+                System.out.println("Нет в наличии");
+                //Добавить дату начала
+                //Дату окончания
+            }
         }
     }
-}*/
+
+
+
+
+
+}
