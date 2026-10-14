@@ -45,23 +45,23 @@ public class AddBook {
         return year;
     }
 
-    /*private void distributionByType(){
-        if(literature.getTypeByID(getId()).equals("Книга")){
-            Book.add(getId(), literature.getNameByID(getId()), literature.getAuthorByID(getId()), literature.getYearByID(getId()));
-        } else if (literature.getTypeByID(getId()).equals("Журнал")) {
-            Magazine.add(getId(), literature.getNameByID(getId()), literature.getAuthorByID(getId()), literature.getYearByID(getId()));
-        } else if (literature.getTypeByID(getId()).equals("Газета")) {
-            Newspapper.add(getId(), literature.getNameByID(getId()), literature.getAuthorByID(getId()), literature.getYearByID(getId()));
+    private void distributionByType(){
+        if(literature.getTypeByID(literature.id).equals("Книга")){
+            Book.add(literature.id, literature.getTypeByID(literature.id), literature.getNameByID(literature.id), literature.getAuthorByID(literature.id), literature.getYearByID(literature.id));
+        } else if (literature.getTypeByID(literature.id).equals("Журнал")) {
+            Magazine.add(literature.id, literature.getTypeByID(literature.id),literature.getNameByID(literature.id), literature.getAuthorByID(literature.id), literature.getYearByID(literature.id));
+        } else if (literature.getTypeByID(literature.id).equals("Газета")) {
+            Newspapper.add(literature.id, literature.getTypeByID(literature.id),literature.getNameByID(literature.id), literature.getAuthorByID(literature.id), literature.getYearByID(literature.id));
         }
         else{
             System.out.println("Вы неверно ввели тип попробуйте снова");
             Exit.exit();
         }
-    }*/
+    }
 
     public void addBook(){
         literature.add(literature.id, type(), name(), author(), year());
-        //distributionByType();
+        distributionByType();
 
         literature.outputByID(literature.id);
         increment();
