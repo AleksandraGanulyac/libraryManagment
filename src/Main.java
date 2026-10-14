@@ -8,7 +8,7 @@ public class Main{
         AddBook addBook = new AddBook();
         AddUser addUser = new AddUser();
         //SearchName searchName = new SearchName();
-        //SearchAuthor searchAuthor = new SearchAuthor();
+        SearchAuthor searchAuthor = new SearchAuthor();
         //Borrow borrow = new Borrow();
 
         int choice;
@@ -49,9 +49,13 @@ public class Main{
                     case 4:
                         literature.output();
                         //borrow.borrow();
-                        //реализовано
+                        //Сделать интерфейс
+                        //1) посмотреть все книги
+                        //2) Найти книгу по автору
+                        //3) Найти книгу по названию
                         break;
                     case 5:
+                        searchAuthor.searchAuthor();
                         //возврат книги
                         //вводится id
                         //Фиксируется дата возврата

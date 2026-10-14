@@ -1,4 +1,5 @@
-/*import java.util.Scanner;
+import java.util.Map;
+import java.util.Scanner;
 
 public class SearchAuthor {
     Literature literature = new Literature();
@@ -8,31 +9,41 @@ public class SearchAuthor {
     boolean found = false;
     boolean partiallyFound = false;
 
-    public void searchAuthor(){
-        System.out.println("Книги какого автора вы ищите?");
-        String search = scanner.nextLine();
+    public void searchBook(String search){
+        for(Map.Entry<Integer, Literature> entry: Literature.literatures.entrySet()){
+            Integer ID = entry.getKey();
+            Literature literature1 = entry.getValue();
 
-        for(Literature l:Literature.literatures){
-            if (literature.getLiteratureAuthor().equalsIgnoreCase(search)){
-               if(!found){
-                   System.out.println("Вот все книги этого автора: ");
-                   found = true;
-               }
-                System.out.println("id: " + literature.id + "|Тип: " + literature.getLiteratureType() + "|Название: " + literature.getLiteratureName() + "|Автор: " + literature.getLiteratureAuthor() + "|Год написания: " + literature.getLiteratureYear());
+            if(literature1.getAuthor().equalsIgnoreCase(search)){
+                if(!found){
+                    System.out.println("Вот все книги этого автора: ");
+                    found = true;
+                }
+                System.out.println("id: " + ID + "|Тип: " +
+                        literature1.getType() + "|Название: " +
+                        literature1.getName() + "|Автор: " +
+                        literature1.getAuthor() + "|Год написания: "
+                        + literature1.getYear());
+
             }
-            else if(literature.getLiteratureAuthor().toLowerCase().contains(search.toLowerCase())){
+            else if(literature1.getAuthor().toLowerCase().contains(search.toLowerCase())){
                 if(!partiallyFound){
                     System.out.println("Может вы имели ввиду: ");
                     partiallyFound = true;
                 }
-                System.out.println(literature.getLiteratureAuthor());
+                System.out.println(literature1.getAuthor());
             }
         }
         if(!found && !partiallyFound){
             System.out.println("К сожалению автор или книги не найдены");
         }
+    }
+    public void searchAuthor(){
+        System.out.println("Книги какого автора вы ищите?");
+        String search = scanner.nextLine();
+        searchBook(search);
         exit.exit();
         scanner.close();
 
     }
-}*/
+}

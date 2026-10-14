@@ -5,7 +5,7 @@ import java.util.Map;
 public class Literature {
     LocalDate currentDate = LocalDate.now();
 
-    public int id;
+    public int id = 1;
     private String type;
     private String name;
     private String author;
@@ -21,7 +21,7 @@ public class Literature {
 
     }
 
-    private static Map<Integer, Literature> literatures = new HashMap<>();
+    static Map<Integer, Literature> literatures = new HashMap<>();
 
     public Literature() {
     }

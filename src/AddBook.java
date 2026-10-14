@@ -4,17 +4,12 @@ public class AddBook {
     Literature literature = new Literature();
     Exit exit = new Exit();
     Scanner scanner = new Scanner(System.in);
-
-    private static int id = 1;
     public boolean choice = true;
 
     public void increment() {
-        id++;
+        literature.id++;
     }
 
-    public int getId() {
-        return id;
-    }
 
     private String type(){
         System.out.println("Введите тип(книга, журнал, газета): ");
@@ -65,10 +60,10 @@ public class AddBook {
     }*/
 
     public void addBook(){
-        literature.add(getId(), type(), name(), author(), year());
+        literature.add(literature.id, type(), name(), author(), year());
         //distributionByType();
 
-        literature.outputByID(getId());
+        literature.outputByID(literature.id);
         increment();
 
         Continue();
