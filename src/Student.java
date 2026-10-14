@@ -2,10 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Student extends User{
+    final int maxBook = 3;
+    final double fine = 5;
+
     public Student(String name, String surname, String type, int birthday){
         super(name, surname,type, birthday);
-        final int maxBook = 3;
-        final double fine = 5;
     }
 
     private static Map<Integer, Student> students = new HashMap<>();
