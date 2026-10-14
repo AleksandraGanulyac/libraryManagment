@@ -1,10 +1,7 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Book extends Literature{
-
-    static final int storage = 30;//Хранение
     private boolean presence;
 
     public Book(String type, String name, String author, int year) {
