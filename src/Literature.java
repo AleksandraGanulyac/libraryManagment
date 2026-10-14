@@ -30,7 +30,7 @@ public class Literature {
         literatures.put(id, new Literature(type, name, author, year));
     }
 
-    public static void output(){
+    public void output(){
         for(Map.Entry<Integer, Literature> entry:literatures.entrySet()){
             Integer id = entry.getKey();
             Literature literature = entry.getValue();
@@ -43,6 +43,8 @@ public class Literature {
             }
             else{
                 System.out.println("Нет в наличии");
+                //Добавить дату начала
+                //Дату окончания
             }
         }
     }

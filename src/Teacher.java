@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 
 public class Teacher extends User{
     public static record teacher(int id, String name, String surname, int birthday){};
@@ -14,4 +14,4 @@ public class Teacher extends User{
             System.out.println("ID: " + teacher.id() + "|Имя: " + teacher.name() +  "|Год рождения: " + teacher.birthday());
         }
     }
-}
+}*/

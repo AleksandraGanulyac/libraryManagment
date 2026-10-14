@@ -1,22 +1,39 @@
-/*import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Magazine extends Literature{
-    static final int storage = 7;
+    private boolean presence;
 
-    public Magazine(int id, String type, String name, String author, int year) {
-        super(id, type, name, author, year);
+    public Magazine(String type, String name, String author, int year) {
+        super(type, name, author, year);
+        final int storage = 7;
+        this.presence = true;
     }
 
-    static record magazine1(int id, String name, String author, int year){};
-    public static ArrayList<magazine1> magazines  = new ArrayList<>();
+    public static Map<Integer, Magazine> magazines = new HashMap<>();
 
-    public static void add(int id, String name, String author, int year){
-        magazines.add(new magazine1(id, name, author, year));
+    public static void add(int id, String type, String name, String author, int year){
+        magazines.put(id, new Magazine(type, name, author, year));
     }
-    public static void output(){
-        for(magazine1 magazine:magazines){
-            System.out.println("ID: "+ magazine.id +"|Название: " + magazine.name() + "|Автор: " + magazine.author() + "|Год написания: " + magazine.year() + "|Срок хранения: " + storage);
+
+    @Override
+    public void output(){
+        for(Map.Entry<Integer, Magazine> entry:magazines.entrySet()){
+            Integer ID = entry.getKey();
+            Magazine magazine = entry.getValue();
+
+            System.out.print("ID журнала: " + ID + " | Название журнала: " + getName() +
+                    " | Автор журнала: " + getAuthor() +  " | Год написания: " + getYear());
+            if(magazine.presence == true){
+                System.out.println(" | В наличии");
+            }
+            else{
+                System.out.println("Нет в наличии");
+                //Добавить дату начала
+                //Дату окончания
+            }
         }
     }
-}*/
+}
 
