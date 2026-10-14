@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class AddUser {
-    Teacher teacher = new Teacher();
     Student student = new Student();
+    Teacher teacher = new Teacher();
     Exit exit = new Exit();
     User user = new User();
     Scanner scanner = new Scanner(System.in);
@@ -21,9 +21,9 @@ public class AddUser {
     //Распределение по типам
     private void distributionByType(){
         if(user.getTypeByID(id).equals("Студент")){
-            student.add(getId(), user.getNameByID(getId()), user.getSurnameByID(getId()), user.getBirthdayByID(getId()));
+            student.add(getId(), user.getNameByID(getId()), user.getSurnameByID(getId()), user.getTypeByID(getId()), user.getBirthdayByID(getId()));
         } else if (user.getTypeByID(id).equals("Преподаватель")) {
-            student.add(getId(), user.getNameByID(getId()), user.getSurnameByID(getId()), user.getBirthdayByID(getId()));
+            teacher.add(getId(), user.getNameByID(getId()), user.getSurnameByID(getId()), user.getTypeByID(getId()), user.getBirthdayByID(getId()));
         }
         else{
             System.out.println("Вы неверно ввели тип попробуйте снова");

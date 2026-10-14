@@ -9,6 +9,8 @@ public class Student extends User{
         super(name, surname,type, birthday);
     }
 
+    public Student(){}
+
     private static Map<Integer, Student> students = new HashMap<>();
 
     public void add(int id, String name, String surname, String type, int birthday){

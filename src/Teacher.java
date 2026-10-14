@@ -2,12 +2,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Teacher extends User{
-    final int maxBook = 3;
-    final double fine = 5;
+    final int maxBook = 10;
+    final double fine = 2;
 
     public Teacher(String name, String surname, String type, int birthday){
         super(name, surname,type, birthday);
     }
+
+    public Teacher(){}
 
     private static Map<Integer, Teacher> teachers = new HashMap<>();
 
