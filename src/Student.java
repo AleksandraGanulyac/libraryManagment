@@ -11,7 +11,7 @@ public class Student extends User{
 
     public Student(){}
 
-    private static Map<Integer, Student> students = new HashMap<>();
+    static Map<Integer, Student> students = new HashMap<>();
 
     public void add(int id, String name, String surname, String type, int birthday){
         students.put(id, new Student(name, surname, type, birthday));
@@ -23,9 +23,9 @@ public class Student extends User{
             Integer ID = entry.getKey();
             Student student = entry.getValue();
 
-            System.out.println("ID пользователя: " + id + " | Имя: " + getName() +
-                    " | Фамилия: " + getSurname()  + " | Год рождения: " + getBirthday() + " | Количество взятых книг: "
-                    + getNumberBook());
+            System.out.println("ID пользователя: " + ID + " | Имя: " + student.getName() +
+                    " | Фамилия: " + student.getSurname()  + " | Год рождения: " + student.getBirthday() + " | Количество взятых книг: "
+                    + student.getNumberBook());
         }
     }
 
