@@ -1,19 +1,12 @@
-/*public class UserBook {
-    User user = new User();
+public class UserBook {
 
     public void addUserBook(int id){
-        for(User user:User.users){
-            if(user.id == id){
-                user.setUserPlusNumberBook(id, 1);
-            }
-        }
+        User user1 = User.users.get(id);
+        user1.setNumberBook(user1.getNumberBook()+1);
     }
 
     public void putAwayUserBook(int id){
-        for(User user:User.users){
-            if(user.id == id){
-                user.setUserMinusNumberBook(id, 1);
-            }
-        }
+        User user1 = User.users.get(id);
+        user1.setNumberBook(user1.getNumberBook()-1);
     }
-}*/
+}

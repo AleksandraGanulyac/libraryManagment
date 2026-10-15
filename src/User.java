@@ -18,7 +18,7 @@ public class User {
         final int maxBook;
         final double fine;
     }
-    private static Map<Integer, User> users = new HashMap<>();
+    static Map<Integer, User> users = new HashMap<>();
 
     public User() {
     }
@@ -103,5 +103,7 @@ public class User {
         return numberBook;
     }
 
-
+    public void setNumberBook(int numberBook) {
+        this.numberBook = numberBook;
+    }
 }

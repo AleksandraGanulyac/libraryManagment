@@ -105,4 +105,12 @@ public class Literature {
         }
         return 0;
     }
+
+    public boolean getPresence(){
+        return presence;
+    }
+
+    public void setPresence(boolean presence) {
+        this.presence = presence;
+    }
 }
