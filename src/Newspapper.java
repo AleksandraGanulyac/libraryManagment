@@ -7,9 +7,10 @@ public class Newspapper extends Literature{
 
     public Newspapper(String type, String name, String author, int year) {
         super(type, name, author, year);
-        final int storage = 30;
         this.presence = true;
     }
+
+    public Newspapper(){}
 
     public static Map<Integer, Newspapper> newspappers = new HashMap<>();
 

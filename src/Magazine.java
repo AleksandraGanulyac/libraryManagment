@@ -4,12 +4,14 @@ import java.util.Map;
 
 public class Magazine extends Literature{
     private boolean presence;
+    final int storage = 7;
 
     public Magazine(String type, String name, String author, int year) {
         super(type, name, author, year);
-        final int storage = 7;
         this.presence = true;
     }
+
+    public Magazine(){}
 
     public static Map<Integer, Magazine> magazines = new HashMap<>();
 

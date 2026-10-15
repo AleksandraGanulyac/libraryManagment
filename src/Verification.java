@@ -1,4 +1,4 @@
-/*public class Verification {
+public class Verification {
     UserBookVerification userBookVerification = new UserBookVerification();
     LiteraturePresenceVerification literaturePresenceVerification = new LiteraturePresenceVerification();
     public boolean verefication(int userID, int bookID){
@@ -15,4 +15,4 @@
         }
         return false;
     }
-}*/
+}

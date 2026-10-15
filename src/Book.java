@@ -3,13 +3,14 @@ import java.util.Map;
 
 public class Book extends Literature{
     private boolean presence;
+    final int storage = 30;
 
     public Book(String type, String name, String author, int year) {
         super(type, name, author, year);
-        final int storage = 30;
         this.presence = true;
 
     }
+    public Book(){}
 
    public static Map<Integer, Book> books = new HashMap<>();
 
@@ -35,9 +36,4 @@ public class Book extends Literature{
             }
         }
     }
-
-
-
-
-
 }

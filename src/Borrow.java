@@ -1,4 +1,4 @@
-/*import java.time.LocalDate;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Borrow {
@@ -6,7 +6,6 @@ public class Borrow {
     UserBook userBook = new UserBook();
     User user = new User();
     LiteraturePresence presence = new LiteraturePresence();
-    Literature literature = new Literature();
 
     Verification verification = new Verification();
 
@@ -17,18 +16,17 @@ public class Borrow {
         return LocalDate.now();
     }
 
-    private LocalDate getEndDays(int literatureId){
-        for(Literature l:Literature.literatures){
-            if(literatureId == l.id){
-                if(l.getLiteratureType(literatureId).equalsIgnoreCase("книга")){
-                    endDays = getStartDays().plusDays(30);
-                } else if (l.getLiteratureType(literatureId).equalsIgnoreCase("журнал")) {
-                    endDays = getStartDays().plusDays(7);
-                } else if (l.getLiteratureType(literatureId).equalsIgnoreCase("газета")) {
-                    endDays = getStartDays().plusDays(1);
-                }
-            }
-            return endDays;
+    private LocalDate getEndDays(int ID){
+        Literature literature = Literature.literatures.get(ID);
+        if(literature.getType().equalsIgnoreCase("книга")){
+            Book book = new Book();
+            endDays = LocalDate.now().plusDays(book.storage);
+        } else if (literature.getType().equalsIgnoreCase("журнал")){
+            Magazine magazine = new Magazine();
+            endDays = LocalDate.now().plusDays(magazine.storage);
+        } else if (literature.getType().equalsIgnoreCase("газета")){
+            Newspapper newspapper = new Newspapper();
+            endDays = LocalDate.now().plusDays(newspapper.storage);
         }
         return LocalDate.now();
     }
@@ -68,4 +66,4 @@ public class Borrow {
             Exit.exit();
         }
     }
-}*/
+}
