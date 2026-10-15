@@ -1,12 +1,12 @@
-/*public class LiteraturePresenceVerification {
-    Literature literature = new Literature();
+public class LiteraturePresenceVerification {
 
     public boolean literaturePresenceVerefication(int id) {
         //получаем количество книг, создать getter
-        if (literature.getPresence(id)) {
+        Literature literature = Literature.literatures.get(id);
+        if (literature.getPresence()) {
             return true;
         } else {
             return false;
         }
     }
-}*/
+}
