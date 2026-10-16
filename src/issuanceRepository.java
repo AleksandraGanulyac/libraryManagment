@@ -1,12 +1,10 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 //Активные выдачи
 public class issuanceRepository {
-    private int ID;
+    public static int ID = 1;
     private int userID;
     private String userType;
     private String userName;
@@ -50,8 +48,8 @@ public class issuanceRepository {
             System.out.println("ID выдачи: " + ID + " | ID пользователя: " + issRep.getUserID() +
                     " | Тип пользователя: " + issRep.getUserType() + " | Имя пользователя: " + issRep.getUserName()+
                     " | Фамилия пользователя: " + issRep.getUserSurname() + " | ID книги: " + issRep.getLiteratureID() +
-                    " | Тип книги: " + issRep.getLiteratureType() + " | Название книги: " + issRep.getLiteratureName() +
-                    " | Автор книги: " + issRep.getLiteratureAuthor() + " | Дата начала аренды: " +
+                    " | Тип литературы: " + issRep.getLiteratureType() + " | Название литературы: " + issRep.getLiteratureName() +
+                    " | Автор литературы: " + issRep.getLiteratureAuthor() + " | Дата начала аренды: " +
                     issRep.getStartDays() + " | Дата окончания: " + issRep.getEndDays());
         }
     }

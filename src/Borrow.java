@@ -4,12 +4,11 @@ import java.util.Scanner;
 public class Borrow {
     Scanner scanner = new Scanner(System.in);
     UserBook userBook = new UserBook();
-    User user = new User();
     LiteraturePresence presence = new LiteraturePresence();
+    issuanceRepository issRep = new issuanceRepository();
 
     Verification verification = new Verification();
 
-    private static int borrowID = 1;
     private LocalDate endDays;
 
     private LocalDate getStartDays(){
@@ -20,28 +19,28 @@ public class Borrow {
         Literature literature = Literature.literatures.get(ID);
         if(literature.getType().equalsIgnoreCase("книга")){
             Book book = new Book();
-            endDays = LocalDate.now().plusDays(book.storage);
+            return endDays = LocalDate.now().plusDays(book.storage);
         } else if (literature.getType().equalsIgnoreCase("журнал")){
             Magazine magazine = new Magazine();
-            endDays = LocalDate.now().plusDays(magazine.storage);
+            return endDays = LocalDate.now().plusDays(magazine.storage);
         } else if (literature.getType().equalsIgnoreCase("газета")){
             Newspapper newspapper = new Newspapper();
-            endDays = LocalDate.now().plusDays(newspapper.storage);
+            return endDays = LocalDate.now().plusDays(newspapper.storage);
         }
         return LocalDate.now();
     }
 
-    private void addingList(int userId, int literatureId){
-        issuanceRepository.add(borrowID, userId, user.getUserType(userId), user.getUserName(userId), user.getUserSurname(userId), literatureId, literature.getLiteratureType(literatureId), literature.getLiteratureName(literatureId), literature.getLiteratureAuthor(literatureId), getStartDays(), getEndDays(literatureId));
+    private void addingList(int userID, int literatureID){
+        User user1 = User.users.get(userID);
+        Literature literature1 = Literature.literatures.get(literatureID);
+
+        issRep.add(issRep.ID, userID, user1.getType(), user1.getName(),
+                user1.getSurname(),literatureID, literature1.getType(), literature1.getName(),
+                literature1.getAuthor(), LocalDate.now(), getEndDays(literatureID));
     }
 
-    public void borrowOutput(int userId, int literatureId){
-        System.out.println("id взятия: " + borrowID + " | Имя пользователя: "
-                + user.getUserName(userId) + " | Фамилия пользователя: " + user.getUserSurname(userId) +
-                " | Тип литературы: " + literature.getLiteratureType(literatureId) + " | Название литературы: " +
-                literature.getLiteratureName(literatureId) + " | Автор: " + literature.getLiteratureAuthor(literatureId) +
-                " | Дата сделки: " + getStartDays() + " | Дата окончания: " +
-                getEndDays(literatureId));
+    public void borrowOutput(){
+        issRep.outputByID(issRep.ID);
     }
 
     public void borrow(){
@@ -55,9 +54,9 @@ public class Borrow {
             userBook.addUserBook(userId);
             presence.literaturePresence(literatureId);
 
-            borrowOutput(userId, literatureId);
             addingList(userId, literatureId);
-            borrowID++;
+            borrowOutput();
+            issRep.ID++;
 
             Exit.exit();
         }

@@ -5,7 +5,7 @@ import java.util.Map;
 public class Literature {
     LocalDate currentDate = LocalDate.now();
 
-    public int id = 1;
+    public static int id = 1;
     private String type;
     private String name;
     private String author;

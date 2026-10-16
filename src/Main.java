@@ -9,7 +9,7 @@ public class Main{
         AddUser addUser = new AddUser();
         SearchName searchName = new SearchName();
         SearchAuthor searchAuthor = new SearchAuthor();
-        //Borrow borrow = new Borrow();
+        Borrow borrow = new Borrow();
 
         int choice;
         boolean isRunning = true;
@@ -80,6 +80,7 @@ public class Main{
                         //реализовать
                         break;
                     case 7:
+                        borrow.borrow();
                         //Все штрафники
                         //Штрафы по id
                         //реализовать
