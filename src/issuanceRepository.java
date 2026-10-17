@@ -185,4 +185,8 @@ public class issuanceRepository {
         }
         return LocalDate.now();
     }
+
+    public void delete(int borrowID){
+        borrows.remove(borrowID);
+    }
 }

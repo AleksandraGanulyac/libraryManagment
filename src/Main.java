@@ -10,6 +10,8 @@ public class Main{
         SearchName searchName = new SearchName();
         SearchAuthor searchAuthor = new SearchAuthor();
         Borrow borrow = new Borrow();
+        Return returnBook = new Return();
+        issuanceRepository issRep = new issuanceRepository();
 
         int choice;
         boolean isRunning = true;
@@ -30,7 +32,7 @@ public class Main{
             System.out.println("10.Выход");
             System.out.print("Выберите и введите цифру, соответствующую нужной информации: ");
             choice = scanner.nextInt();
-            if(1<= choice && choice <= 8){
+            if(1<= choice && choice <= 10){
                 switch(choice){
                     case 1:
                         addBook.addBook();
@@ -86,13 +88,14 @@ public class Main{
                         //реализовать
                         break;
                     case 8:
+                        returnBook.returnMenu();
                         //Выдачи пользователя по id
                         break;
                     case 9:
+                        issRep.output();
                         //вводится id пользователя
                         //Все его штрафы штраф + книги за которые капает штраф
                         //Заплатить штраф
-                        user.output();
                         break;
                     case 10:
                         //Выход из программы
