@@ -15,6 +15,7 @@ public class issuanceRepository {
     private String literatureAuthor;
     private LocalDate startDays;
     private LocalDate endDays;
+    private LocalDate fineDay;
 
 
     public issuanceRepository(int userID, String userType, String userName, String userSurname, int literatureID, String literatureType, String literatureName, String literatureAuthor, LocalDate startDays, LocalDate endDays){
@@ -28,7 +29,7 @@ public class issuanceRepository {
         this.literatureAuthor = literatureAuthor;
         this.startDays = startDays;
         this.endDays = endDays;
-        LocalDate fineDay = endDays.plusDays(1);
+        this.fineDay = endDays.plusDays(1);
     }
 
     public issuanceRepository(){}
@@ -190,5 +191,9 @@ public class issuanceRepository {
 
     public void delete(int borrowID){
         borrows.remove(borrowID);
+    }
+
+    public LocalDate getFineDay(){
+        return fineDay;
     }
 }
